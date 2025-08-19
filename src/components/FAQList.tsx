@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 const faqs = [
   {
@@ -16,14 +17,19 @@ const faqs = [
 ];
 
 const FAQList: React.FC = () => (
-  <section className="py-8">
-    <h3 className="text-xl font-bold text-blue-700 mb-4 text-center">자주 묻는 질문</h3>
-    <div className="space-y-4 max-w-2xl mx-auto">
+  <section className="py-12 bg-gradient-to-br from-blue-50 via-yellow-50 to-white">
+    <h3 className="text-2xl md:text-3xl font-extrabold text-blue-800 mb-8 text-center font-serif tracking-tight">자주 묻는 질문</h3>
+    <div className="space-y-6 max-w-2xl mx-auto px-4">
       {faqs.map((faq, i) => (
-        <details key={i} className="bg-white rounded-lg shadow p-4">
-          <summary className="font-semibold cursor-pointer text-blue-700">{faq.q}</summary>
-          <p className="mt-2 text-gray-700">{faq.a}</p>
-        </details>
+        <Card key={i} className="p-0 overflow-hidden">
+          <details className="group transition-all duration-200">
+            <summary className="font-bold cursor-pointer text-blue-700 text-lg flex items-center gap-2 group-open:text-yellow-700 group-open:bg-yellow-50 px-2 py-1 rounded-lg transition-all duration-200">
+              <span className="inline-block w-6 h-6 text-blue-400">❓</span>
+              {faq.q}
+            </summary>
+            <p className="mt-3 text-blue-800 text-base leading-relaxed font-medium">{faq.a}</p>
+          </details>
+        </Card>
       ))}
     </div>
   </section>

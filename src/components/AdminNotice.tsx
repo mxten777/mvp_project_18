@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "./Button";
+import Card from "./Card";
 
 interface Notice {
   id: number;
@@ -111,91 +113,88 @@ const AdminNotice: React.FC = () => {
         @keyframes spin { 100% { transform: rotate(360deg); } }
       `}</style>
       <h3 className="text-xl font-bold mb-4 text-blue-700 text-center">공지사항 관리</h3>
-      <div className="bg-white rounded shadow p-4 mb-6">
+      <Card className="mb-6">
         <input
-          className="border p-2 w-full mb-2"
+          className="border-2 border-blue-200 rounded-xl p-3 w-full mb-3 text-lg focus:ring-2 focus:ring-blue-300"
           placeholder="제목"
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
         <textarea
-          className="border p-2 w-full mb-2"
+          className="border-2 border-blue-200 rounded-xl p-3 w-full mb-3 text-lg focus:ring-2 focus:ring-blue-300"
           placeholder="내용"
           value={content}
           onChange={e => setContent(e.target.value)}
         />
-        <button
-          className="btn btn-blue w-full py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-400 active:bg-blue-700"
-          onClick={addNotice}
-          aria-label="공지 등록"
-          role="button"
-        >공지 등록</button>
-      </div>
+        <Button className="w-full mt-2" size="md" onClick={addNotice} aria-label="공지 등록">공지 등록</Button>
+      </Card>
       <input
-        className="border p-2 w-full mb-4"
+        className="border-2 border-blue-100 rounded-xl p-3 w-full mb-6 text-base focus:ring-2 focus:ring-blue-200"
         placeholder="제목 또는 내용 검색"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
-      <ul className="space-y-4">
+      <ul className="space-y-6">
         {notices
           .filter(n => n.title.includes(search) || n.content.includes(search))
           .slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
           .map(n => (
-          <li key={n.id} className="bg-gray-50 rounded p-4 shadow flex flex-col md:flex-row md:items-center md:justify-between">
-            {editId === n.id ? (
-              <div className="flex-1 mb-2 md:mb-0 md:mr-4">
-                <input
-                  className="border p-2 w-full mb-2"
-                  value={editTitle}
-                  onChange={e => setEditTitle(e.target.value)}
-                />
-                <textarea
-                  className="border p-2 w-full mb-2"
-                  value={editContent}
-                  onChange={e => setEditContent(e.target.value)}
-                />
-                <div className="flex gap-2">
-                  <button className="btn btn-blue py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-blue-400 active:bg-blue-700" onClick={() => saveEdit(n.id)} aria-label="저장" role="button">저장</button>
-                  <button className="btn btn-gray py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-blue-400 active:bg-gray-400" onClick={cancelEdit} aria-label="취소" role="button">취소</button>
+            <Card key={n.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6">
+              {editId === n.id ? (
+                <div className="flex-1 mb-2 md:mb-0 md:mr-4">
+                  <input
+                    className="border-2 border-blue-200 rounded-xl p-2 w-full mb-2 text-base focus:ring-2 focus:ring-blue-300"
+                    value={editTitle}
+                    onChange={e => setEditTitle(e.target.value)}
+                  />
+                  <textarea
+                    className="border-2 border-blue-200 rounded-xl p-2 w-full mb-2 text-base focus:ring-2 focus:ring-blue-300"
+                    value={editContent}
+                    onChange={e => setEditContent(e.target.value)}
+                  />
+                  <div className="flex gap-2">
+                    <Button size="sm" onClick={() => saveEdit(n.id)} aria-label="저장">저장</Button>
+                    <Button size="sm" variant="secondary" onClick={cancelEdit} aria-label="취소">취소</Button>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div>
-                <button className="font-semibold text-left hover:underline" onClick={() => setDetail(n)}>{n.title}</button>
-                <div className="text-sm text-gray-600 mb-1">{n.content}</div>
-                <div className="text-xs text-gray-400">{n.date}</div>
-              </div>
-            )}
-            <div className="flex flex-col gap-2 mt-2 md:mt-0 md:ml-4">
-              {editId !== n.id && (
-                <button className="btn btn-green py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-700" onClick={() => startEdit(n)} aria-label="수정" role="button">수정</button>
+              ) : (
+                <div>
+                  <button className="font-semibold text-left hover:underline text-lg text-blue-800" onClick={() => setDetail(n)}>{n.title}</button>
+                  <div className="text-base text-blue-500 mb-1 mt-1">{n.content}</div>
+                  <div className="text-xs text-blue-300">{n.date}</div>
+                </div>
               )}
-              <button className="btn btn-red py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-red-400 active:bg-red-700" onClick={() => deleteNotice(n.id)} aria-label="삭제" role="button">삭제</button>
-            </div>
-          </li>
+              <div className="flex flex-col gap-2 mt-2 md:mt-0 md:ml-4 min-w-[90px]">
+                {editId !== n.id && (
+                  <Button size="sm" variant="secondary" onClick={() => startEdit(n)} aria-label="수정">수정</Button>
+                )}
+                <Button size="sm" variant="secondary" onClick={() => deleteNotice(n.id)} aria-label="삭제">삭제</Button>
+              </div>
+            </Card>
         ))}
       </ul>
       {/* 페이징 */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-2 mt-8">
         {Array.from({ length: Math.ceil(notices.filter(n => n.title.includes(search) || n.content.includes(search)).length / PAGE_SIZE) }, (_, i) => (
-          <button
+          <Button
             key={i}
-            className={`px-3 py-1 rounded ${page === i + 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+            size="sm"
+            variant={page === i + 1 ? "primary" : "secondary"}
+            className={page === i + 1 ? "!bg-blue-600 !text-white" : "!bg-gray-200 !text-blue-700"}
             onClick={() => setPage(i + 1)}
           >
             {i + 1}
-          </button>
+          </Button>
         ))}
       </div>
       {detail && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
-            <button className="absolute top-2 right-2 text-gray-400 hover:text-gray-700" onClick={() => setDetail(null)}>&times;</button>
-            <div className="text-lg font-bold mb-2">{detail.title}</div>
-            <div className="text-gray-700 mb-4 whitespace-pre-line">{detail.content}</div>
-            <div className="text-xs text-gray-400">{detail.date}</div>
-          </div>
+          <Card className="p-8 max-w-md w-full relative animate-fadein">
+            <Button className="absolute top-2 right-2 !bg-transparent !shadow-none text-blue-300 hover:text-blue-700 text-2xl px-2 py-0" size="sm" onClick={() => setDetail(null)} aria-label="닫기">&times;</Button>
+            <div className="text-xl font-bold mb-3 text-blue-800">{detail.title}</div>
+            <div className="text-base text-blue-700 mb-4 whitespace-pre-line">{detail.content}</div>
+            <div className="text-xs text-blue-300">{detail.date}</div>
+          </Card>
         </div>
       )}
     </div>

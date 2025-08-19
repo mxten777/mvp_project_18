@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "./Button";
+import Card from "./Card";
 
 interface Application {
   id: number;
@@ -62,42 +64,22 @@ const AdminApplication: React.FC = () => {
         @keyframes spin { 100% { transform: rotate(360deg); } }
       `}</style>
       <h3 className="text-xl font-bold mb-4 text-blue-700 text-center">신청서 관리</h3>
-      <ul className="space-y-4">
+      <ul className="space-y-6">
         {apps.map(a => (
-          <li key={a.id} className="bg-gray-50 rounded p-4 shadow flex flex-col md:flex-row md:items-center md:justify-between">
+          <Card key={a.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6">
             <div>
-              <div className="font-semibold">{a.name} <span className="text-xs text-gray-400">({a.phone})</span></div>
-              <div className="text-sm text-gray-600 mb-1">서비스: {a.service}</div>
-              <div className="text-xs text-gray-400">신청일: {a.date}</div>
-              <div className="text-xs mt-1">상태: <span className={a.status === "승인" ? "text-green-600" : a.status === "거절" ? "text-red-600" : "text-gray-700"}>{a.status}</span></div>
+              <div className="font-semibold text-lg text-blue-800">{a.name} <span className="text-xs text-blue-300">({a.phone})</span></div>
+              <div className="text-base text-blue-500 mb-1">서비스: {a.service}</div>
+              <div className="text-xs text-blue-300">신청일: {a.date}</div>
+              <div className="text-xs mt-1">상태: <span className={a.status === "승인" ? "text-green-600 font-bold" : a.status === "거절" ? "text-red-600 font-bold" : "text-blue-400"}>{a.status}</span></div>
             </div>
-            <div className="flex gap-2 mt-2 md:mt-0">
-              <button
-                className="btn btn-green py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-700"
-                onClick={() => setStatus(a.id, "승인")}
-                aria-label="승인"
-                role="button"
-              >승인</button>
-              <button
-                className="btn btn-red py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-red-400 active:bg-red-700"
-                onClick={() => setStatus(a.id, "거절")}
-                aria-label="거절"
-                role="button"
-              >거절</button>
-              <button
-                className="btn btn-gray py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-gray-400 active:bg-gray-400"
-                onClick={() => setStatus(a.id, "대기")}
-                aria-label="대기"
-                role="button"
-              >대기</button>
-              <button
-                className="btn btn-red py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-red-400 active:bg-red-700"
-                onClick={() => deleteApp(a.id)}
-                aria-label="삭제"
-                role="button"
-              >삭제</button>
+            <div className="flex gap-2 mt-2 md:mt-0 min-w-[180px] flex-wrap">
+              <Button size="sm" variant="secondary" onClick={() => setStatus(a.id, "승인")}>승인</Button>
+              <Button size="sm" variant="secondary" onClick={() => setStatus(a.id, "거절")}>거절</Button>
+              <Button size="sm" variant="secondary" onClick={() => setStatus(a.id, "대기")}>대기</Button>
+              <Button size="sm" variant="secondary" onClick={() => deleteApp(a.id)}>삭제</Button>
             </div>
-          </li>
+          </Card>
         ))}
       </ul>
     </div>

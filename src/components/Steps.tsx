@@ -1,24 +1,24 @@
 import React from "react";
 
 const Steps: React.FC = () => (
-  <section className="py-8">
-    <h3 className="text-xl font-bold text-blue-700 mb-4 text-center">서비스 이용 절차</h3>
-    <ol className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+  <section className="py-12 bg-gradient-to-br from-blue-50 via-yellow-50 to-white">
+    <h3 className="text-2xl md:text-3xl font-extrabold text-blue-800 mb-8 text-center font-serif tracking-tight">서비스 이용 절차</h3>
+    <ol className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
       <li className="flex flex-col items-center">
-        <span className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-700 rounded-full font-bold mb-2">1</span>
-        <span className="font-medium">상담 신청</span>
+        <span className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-200 to-yellow-100 text-blue-800 rounded-full font-extrabold text-2xl mb-3 shadow-lg border-2 border-blue-100">1</span>
+        <span className="font-bold text-lg text-blue-700">상담 신청</span>
       </li>
       <li className="flex flex-col items-center">
-        <span className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-700 rounded-full font-bold mb-2">2</span>
-        <span className="font-medium">방문 상담</span>
+        <span className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-200 to-yellow-100 text-blue-800 rounded-full font-extrabold text-2xl mb-3 shadow-lg border-2 border-blue-100">2</span>
+        <span className="font-bold text-lg text-blue-700">방문 상담</span>
       </li>
       <li className="flex flex-col items-center">
-        <span className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-700 rounded-full font-bold mb-2">3</span>
-        <span className="font-medium">서비스 신청</span>
+        <span className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-200 to-yellow-100 text-blue-800 rounded-full font-extrabold text-2xl mb-3 shadow-lg border-2 border-blue-100">3</span>
+        <span className="font-bold text-lg text-blue-700">서비스 신청</span>
       </li>
       <li className="flex flex-col items-center">
-        <span className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-700 rounded-full font-bold mb-2">4</span>
-        <span className="font-medium">맞춤 케어 시작</span>
+        <span className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-200 to-yellow-100 text-blue-800 rounded-full font-extrabold text-2xl mb-3 shadow-lg border-2 border-blue-100">4</span>
+        <span className="font-bold text-lg text-blue-700">맞춤 케어 시작</span>
       </li>
     </ol>
   </section>

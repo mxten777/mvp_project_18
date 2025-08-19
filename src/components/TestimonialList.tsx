@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 const testimonials = [
   {
@@ -16,14 +17,15 @@ const testimonials = [
 ];
 
 const TestimonialList: React.FC = () => (
-  <section className="py-8">
-    <h3 className="text-xl font-bold text-blue-700 mb-4 text-center">고객 후기</h3>
-    <div className="grid gap-4 md:grid-cols-3">
+  <section className="py-12 bg-gradient-to-br from-yellow-50 via-blue-50 to-white">
+    <h3 className="text-2xl md:text-3xl font-extrabold text-blue-800 mb-8 text-center font-serif tracking-tight">고객 후기</h3>
+    <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto px-4">
       {testimonials.map((t, i) => (
-        <div key={i} className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-          <p className="text-gray-700 text-center mb-2">“{t.text}”</p>
-          <span className="text-sm text-gray-400">- {t.name}</span>
-        </div>
+        <Card key={i} className="flex flex-col items-center">
+          <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-200 to-yellow-100 shadow text-2xl mb-4 border-2 border-blue-200 text-blue-700">💬</span>
+          <p className="text-blue-800 text-center mb-3 text-lg font-medium leading-relaxed">“{t.text}”</p>
+          <span className="text-base text-blue-400 font-semibold">- {t.name}</span>
+        </Card>
       ))}
     </div>
   </section>

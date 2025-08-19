@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "./Button";
+import Card from "./Card";
 
 interface User {
   id: number;
@@ -60,28 +62,20 @@ const AdminUser: React.FC = () => {
         @keyframes spin { 100% { transform: rotate(360deg); } }
       `}</style>
       <h3 className="text-xl font-bold mb-4 text-blue-700 text-center">회원 관리</h3>
-      <ul className="space-y-4">
+      <ul className="space-y-6">
         {users.map(u => (
-          <li key={u.id} className="bg-gray-50 rounded p-4 shadow flex flex-col md:flex-row md:items-center md:justify-between">
+          <Card key={u.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6">
             <div>
-              <div className="font-semibold">{u.name} <span className="text-xs text-gray-400">({u.email})</span></div>
-              <div className="text-sm text-gray-600 mb-1">권한: <span className={u.role === "admin" ? "text-blue-600" : "text-gray-700"}>{u.role}</span></div>
+              <div className="font-semibold text-lg text-blue-800">{u.name} <span className="text-xs text-blue-300">({u.email})</span></div>
+              <div className="text-base text-blue-500 mb-1">권한: <span className={u.role === "admin" ? "text-blue-700 font-bold" : "text-blue-400"}>{u.role}</span></div>
             </div>
-            <div className="flex gap-2 mt-2 md:mt-0">
-              <button
-                className="btn btn-green py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-700"
-                onClick={() => toggleRole(u.id)}
-                aria-label={u.role === "admin" ? "일반회원 전환" : "관리자 전환"}
-                role="button"
-              >{u.role === "admin" ? "일반회원 전환" : "관리자 전환"}</button>
-              <button
-                className="btn btn-red py-2 px-4 text-base focus:outline-none focus:ring-2 focus:ring-red-400 active:bg-red-700"
-                onClick={() => deleteUser(u.id)}
-                aria-label="삭제"
-                role="button"
-              >삭제</button>
+            <div className="flex gap-2 mt-2 md:mt-0 min-w-[120px]">
+              <Button size="sm" variant="secondary" onClick={() => toggleRole(u.id)} aria-label={u.role === "admin" ? "일반회원 전환" : "관리자 전환"}>
+                {u.role === "admin" ? "일반회원 전환" : "관리자 전환"}
+              </Button>
+              <Button size="sm" variant="secondary" onClick={() => deleteUser(u.id)} aria-label="삭제">삭제</Button>
             </div>
-          </li>
+          </Card>
         ))}
       </ul>
     </div>
