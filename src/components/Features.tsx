@@ -2,8 +2,8 @@ import React from "react";
 import Card from "./Card";
 
 const Features: React.FC = () => (
-  <section className="py-12 bg-gradient-to-br from-yellow-50 via-blue-50 to-white">
-    <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3 px-4">
+  <section className="py-16 bg-gradient-to-br from-[#fdf6e3] via-[#e0e7ff] to-white">
+    <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-3 px-6 md:px-8">
       <Card className="flex flex-col items-center">
         <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-yellow-200 to-blue-100 shadow text-4xl mb-4 border-2 border-blue-200">💸</span>
         <h3 className="font-extrabold text-xl mb-2 text-blue-800 font-serif tracking-tight">국가 지원금 85% 이상</h3>

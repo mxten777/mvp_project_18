@@ -7,12 +7,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const base =
-  "inline-flex items-center justify-center font-bold rounded-2xl shadow-lg transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-60 disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-150 select-none shadow-md hover:shadow-xl border-2";
 const variants = {
-  primary:
-    "bg-gradient-to-r from-blue-400 to-yellow-200 text-blue-900 hover:from-blue-500 hover:to-yellow-300 active:scale-95",
-  secondary:
-    "bg-gradient-to-r from-yellow-200 to-blue-100 text-blue-800 hover:from-yellow-300 hover:to-blue-200 active:scale-95 border border-blue-200",
+  primary: "bg-gradient-to-br from-[#b4b4e6] to-[#fdf6e3] text-[#3b3b6d] border-[#b4b4e6] hover:from-[#a3a3d1] hover:to-[#fef9c3] hover:text-[#22224c] hover:border-[#a3a3d1]",
+  secondary: "bg-white text-[#3b3b6d] border-[#b4b4e6] hover:bg-[#fdf6e3] hover:text-[#22224c] hover:border-[#a3a3d1]",
 };
 const sizes = {
   lg: "px-8 py-4 text-lg",
