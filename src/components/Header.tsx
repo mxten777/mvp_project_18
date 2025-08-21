@@ -41,29 +41,31 @@ const Header: React.FC = () => {
               기쁨글로리 재가복지센터
             </Link>
           </div>
-          <button
-            className="block md:hidden p-3 ml-2 rounded-full bg-white/90 shadow border border-green-200 text-3xl font-extrabold text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-50 transition-all duration-150"
-            aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
-            aria-expanded={menuOpen}
-            aria-controls="main-nav-menu"
-            onClick={() => setMenuOpen((open) => !open)}
-            type="button"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32" height="32" viewBox="0 0 24 24"
-              fill="none"
-              stroke="#22c55e"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
+          {!menuOpen && (
+            <button
+              className="block md:hidden p-3 ml-2 rounded-full bg-white/90 shadow border border-green-200 text-3xl font-extrabold text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-50 transition-all duration-150"
+              aria-label="메뉴 열기"
+              aria-expanded={menuOpen}
+              aria-controls="main-nav-menu"
+              onClick={() => setMenuOpen(true)}
+              type="button"
             >
-              <line x1="4" y1="6" x2="20" y2="6" />
-              <line x1="4" y1="12" x2="20" y2="12" />
-              <line x1="4" y1="18" x2="20" y2="18" />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32" height="32" viewBox="0 0 24 24"
+                fill="none"
+                stroke="#22c55e"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
+              </svg>
+            </button>
+          )}
           {/* 모바일 메뉴는 모바일에서만 렌더링 */}
           {menuOpen && <MobileNav open={true} onClose={() => setMenuOpen(false)} />}
         </div>
