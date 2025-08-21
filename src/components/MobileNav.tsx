@@ -20,12 +20,12 @@ const MobileNav: React.FC<{
   onClose: () => void;
 }> = ({ open, onClose }) => (
   <div
-    className={`fixed inset-0 z-[120] transition-all duration-300 ${open ? "visible opacity-100" : "invisible opacity-0"}`}
+    className={`fixed inset-0 z-[120] transition-all duration-300 ${open ? "visible" : "invisible"}`}
     aria-hidden={!open}
     style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
   >
     <div
-      className="absolute inset-0 bg-white transition-all duration-300"
+      className="absolute inset-0 bg-white"
       onClick={onClose}
     />
     <nav
@@ -46,8 +46,8 @@ const MobileNav: React.FC<{
         </svg>
       </button>
       {/* 상단 로고/센터명 영역 */}
-  <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white/90 rounded-tr-2xl shadow-md w-full max-w-xs mx-auto">
-        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-200 to-green-100 shadow-lg border-2 border-green-300">
+      <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white rounded-tr-2xl shadow-md w-full max-w-xs mx-auto">
+        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg border-2 border-green-300">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="16" cy="16" r="15" stroke="#22c55e" strokeWidth="2" fill="#f0fdf4" />
             <path d="M10 20c2-4 10-4 12 0" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/>
@@ -57,7 +57,7 @@ const MobileNav: React.FC<{
         </span>
         <span className="text-xl font-extrabold tracking-tight text-green-700 drop-shadow-sm whitespace-nowrap" style={{letterSpacing: '0.02em'}}>기쁨글로리 재가복지센터</span>
       </div>
-  <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden w-full max-w-xs mx-auto">
+      <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden w-full max-w-xs mx-auto bg-white">
         {navLinks.map((link) => (
           <li key={link.to} className="w-full">
             <Link
