@@ -64,11 +64,13 @@ const Header: React.FC = () => {
               <line x1="4" y1="18" x2="20" y2="18" />
             </svg>
           </button>
-  <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
+          {/* 모바일 메뉴는 모바일에서만 렌더링 */}
+          <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
         </div>
+        {/* 데스크탑 메뉴는 md 이상에서만 렌더링, 모바일 메뉴가 열려있을 때는 숨김 */}
         <ul
           id="main-nav-menu"
-          className={`${menuOpen ? 'flex' : 'hidden'} flex-col md:flex md:flex-row flex-wrap gap-3 md:gap-7 text-lg font-semibold w-full md:w-auto mt-2 md:mt-0 bg-white/95 md:bg-transparent border-t-2 md:border-0 border-green-200 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none px-3 md:px-0 py-3 md:py-0 backdrop-blur-sm`}
+          className={`hidden md:flex md:flex-row flex-wrap gap-3 md:gap-7 text-lg font-semibold w-full md:w-auto mt-2 md:mt-0 bg-white/95 md:bg-transparent border-t-2 md:border-0 border-green-200 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none px-3 md:px-0 py-3 md:py-0 backdrop-blur-sm`}
           role="menubar"
         >
           {navLinks.map((link) => (
