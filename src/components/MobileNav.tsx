@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useBodyOverflowHidden } from "../hooks/useBodyOverflowHidden";
 
 const navLinks = [
   { to: "/about", label: "센터소개" },
@@ -19,6 +20,7 @@ const MobileNav: React.FC<{
   open: boolean;
   onClose: () => void;
 }> = ({ open, onClose }) => {
+  useBodyOverflowHidden(open);
   if (!open) return null;
   return (
     <div
@@ -28,12 +30,12 @@ const MobileNav: React.FC<{
     >
       {/* 배경 오버레이 */}
       <div
-        className="fixed inset-0 z-[9999] bg-white/95"
+        className="fixed inset-0 z-[9999] bg-white"
         onClick={onClose}
       />
       {/* 모바일 메뉴 본체 */}
       <nav
-        className="fixed inset-0 z-[10000] w-full h-full bg-white/90 shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 transition-transform duration-300"
+        className="fixed inset-0 z-[10000] w-full h-full bg-white shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 transition-transform duration-300"
         aria-label="모바일 메뉴"
         style={{paddingTop: '68px'}}
       >
@@ -50,7 +52,7 @@ const MobileNav: React.FC<{
         </svg>
       </button>
       {/* 상단 로고/센터명 영역 */}
-        <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white/90 rounded-tr-2xl shadow-md w-full max-w-xs mx-auto">
+        <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white rounded-tr-2xl shadow-md w-full max-w-xs mx-auto">
           <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg border-2 border-green-300">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="16" cy="16" r="15" stroke="#22c55e" strokeWidth="2" fill="#f0fdf4" />
@@ -61,7 +63,7 @@ const MobileNav: React.FC<{
         </span>
         <span className="text-xl font-extrabold tracking-tight text-green-700 drop-shadow-sm whitespace-nowrap" style={{letterSpacing: '0.02em'}}>기쁨글로리 재가복지센터</span>
       </div>
-  <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden w-full max-w-xs mx-auto bg-white/90">
+  <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden w-full max-w-xs mx-auto bg-white">
         {navLinks.map((link) => (
           <li key={link.to} className="w-full">
             <Link
