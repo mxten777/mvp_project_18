@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useBodyOverflowHidden } from "../hooks/useBodyOverflowHidden";
+import { createPortal } from "react-dom";
 
 const navLinks = [
   { to: "/about", label: "센터소개" },
@@ -22,7 +23,7 @@ const MobileNav: React.FC<{
 }> = ({ open, onClose }) => {
   useBodyOverflowHidden(open);
   if (!open) return null;
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[9999] flex flex-col"
       aria-hidden={!open}
@@ -80,7 +81,8 @@ const MobileNav: React.FC<{
       </ul>
 
       </nav>
-    </div>
+    </div>,
+    document.body
   );
 };
 
