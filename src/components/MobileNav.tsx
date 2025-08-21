@@ -29,7 +29,7 @@ const MobileNav: React.FC<{
       onClick={onClose}
     />
     <nav
-      className={`fixed left-0 top-0 w-full h-full max-w-full bg-gradient-to-br from-green-50 via-white to-green-100 shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 z-[130] transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed left-0 top-0 w-full h-full max-w-full bg-white shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 z-[130] transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
       aria-label="모바일 메뉴"
       style={{paddingTop: '68px'}}
     >
