@@ -31,19 +31,19 @@ const MobileNav: React.FC<{
     >
       {/* 배경 오버레이 */}
       <div
-        className="fixed inset-0 z-[9999]"
-        style={{ background: '#fff', opacity: 1, zIndex: 9999 }}
+        className="fixed inset-0 z-[9998]"
+        style={{ background: '#fff', opacity: 1, zIndex: 9998 }}
         onClick={onClose}
       />
       {/* 모바일 메뉴 본체 */}
       <nav
-        className="fixed inset-0 z-[10000] w-full h-full bg-white shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 transition-transform duration-300"
+        className="fixed inset-0 z-[9999] w-full h-full bg-white shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 transition-transform duration-300"
         aria-label="모바일 메뉴"
         style={{paddingTop: '68px'}}
       >
         {/* 닫기(X) 버튼 - 메뉴 전체 오른쪽 상단에 고정 */}
       <button
-        className="fixed top-4 right-4 p-2 rounded-full bg-green-50 hover:bg-green-200 text-xl font-bold text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 shadow z-[200]"
+        className="fixed top-4 right-4 p-2 rounded-full bg-green-50 hover:bg-green-200 text-xl font-bold text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 shadow z-[10000]"
         aria-label="메뉴 닫기"
         onClick={onClose}
         style={{boxShadow: '0 2px 8px #bbf7d0'}}
