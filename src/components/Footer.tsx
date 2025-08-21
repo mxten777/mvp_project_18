@@ -12,7 +12,7 @@ const Footer: React.FC = () => (
             <circle cx="19" cy="14" r="1.5" fill="#22c55e"/>
           </svg>
         </span>
-        <span className="font-extrabold text-xl tracking-tight drop-shadow text-green-700" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>호수바이칼 재가복지센터</span>
+  <span className="font-extrabold text-xl tracking-tight drop-shadow text-green-700" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>기쁨글로리 재가복지센터</span>
       </div>
       <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-green-800 text-sm md:text-base font-medium">
         <span>대표전화: <a href="tel:010-1234-5678" className="underline hover:text-green-500">010-1234-5678</a></span>
@@ -20,7 +20,7 @@ const Footer: React.FC = () => (
         <span>사업자등록번호: 123-45-67890</span>
       </div>
       <div className="text-green-400 text-xs md:text-sm font-medium mt-2 md:mt-0">
-        © {new Date().getFullYear()} 호수바이칼 재가복지센터. All rights reserved.
+  © {new Date().getFullYear()} 기쁨글로리 재가복지센터. All rights reserved.
       </div>
     </div>
   </footer>

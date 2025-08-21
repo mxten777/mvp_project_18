@@ -38,7 +38,7 @@ const Header: React.FC = () => {
               </svg>
             </span>
             <Link to="/" className="text-2xl md:text-3xl font-extrabold tracking-tight text-green-700 drop-shadow-lg" style={{letterSpacing: '0.03em', textShadow:'0 2px 8px #bbf7d0', fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
-              호수바이칼 재가복지센터
+              기쁨글로리 재가복지센터
             </Link>
           </div>
           <button

@@ -42,7 +42,7 @@ const MobileNav: React.FC<{
             <circle cx="19" cy="14" r="1.5" fill="#22c55e"/>
           </svg>
         </span>
-        <span className="text-xl font-extrabold tracking-tight text-green-700 drop-shadow-sm whitespace-nowrap" style={{letterSpacing: '0.02em'}}>호수바이칼 재가복지센터</span>
+  <span className="text-xl font-extrabold tracking-tight text-green-700 drop-shadow-sm whitespace-nowrap" style={{letterSpacing: '0.02em'}}>기쁨글로리 재가복지센터</span>
         <button
           className="absolute top-2 right-2 p-2 rounded-full bg-green-50 hover:bg-green-200 text-xl font-bold text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 shadow"
           aria-label="메뉴 닫기"
