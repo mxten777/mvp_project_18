@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-import MobileNav from "./MobileNav";
 
 
 
@@ -38,7 +37,7 @@ const Header: React.FC = () => {
                 <circle cx="19" cy="14" r="1.5" fill="#22c55e"/>
               </svg>
             </span>
-            <span className="ml-2 text-2xl md:text-3xl font-extrabold text-green-700 tracking-tight whitespace-nowrap select-none" style={{letterSpacing:'-0.02em'}}>기쁨글로리 복지센터</span>
+            <span className="ml-2 text-2xl md:text-3xl font-extrabold text-green-700 tracking-tight whitespace-nowrap select-none" style={{letterSpacing:'-0.02em'}}>기쁨글로리 재가복지센터</span>
             <div className="flex-1" />
             <button
               className="block md:hidden z-[99999] pointer-events-auto p-3 ml-2 rounded-full bg-green-600 shadow border border-green-700 text-3xl font-extrabold text-white focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-700 transition-all duration-150"
@@ -49,36 +48,48 @@ const Header: React.FC = () => {
               ☰
             </button>
             {menuOpen && createPortal(
-              <div className="fixed inset-0 z-[9999] w-full h-full flex items-center justify-center" style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
+              <div className="fixed inset-0 z-[9999] w-full h-full" style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
                 {/* 오버레이 배경 */}
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-200" onClick={() => setMenuOpen(false)} />
-                {/* 메뉴 카드 */}
-                <div 
-                  className="relative z-10 flex flex-col items-center justify-center rounded-2xl shadow-2xl border-4 border-green-200 px-6 py-10 w-[90vw] max-w-xs mx-auto animate-fadeIn"
-                  style={{background:'#d1fae5', color:'#166534'}}>
-                  <div className="text-3xl font-extrabold mb-6" style={{color:'#16a34a'}}>메뉴</div>
+                {/* 우측 슬라이드 메뉴 */}
+                <div
+                  className={`fixed top-0 right-0 h-full w-4/5 max-w-xs bg-gradient-to-br from-green-50 via-white to-green-100/90 border-l-4 border-green-200 shadow-2xl z-10 flex flex-col items-center justify-start px-6 py-10 transition-transform duration-300 transform will-change-transform rounded-l-3xl backdrop-blur-xl ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                  style={{color:'#166534', left: 'auto', right: 0}}>
+                  <div className="flex items-center gap-3 mb-8 w-full justify-between">
+                    <button
+                      className="text-2xl px-3 py-2 rounded-full hover:bg-green-100 active:bg-green-200 transition-colors shadow border border-green-200"
+                      style={{color:'#16a34a'}}
+                      onClick={() => window.history.back()}
+                      aria-label="뒤로가기"
+                    >
+                      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#16a34a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </button>
+                    <span className="text-3xl font-extrabold tracking-tight" style={{color:'#16a34a'}}>메뉴</span>
+                    <button
+                      className="px-3 py-2 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-xl font-bold shadow border border-pink-200 transition-all duration-150"
+                      style={{background:'#db2777'}} onClick={() => setMenuOpen(false)}
+                      aria-label="닫기"
+                    >
+                      ×
+                    </button>
+                  </div>
                   <ul className="flex flex-col gap-2 mb-8 w-full">
                     {navLinks.map((item) => (
                       <li key={item.to} className="w-full">
                         <Link to={item.to} onClick={() => setMenuOpen(false)}
-                          className="block w-full px-6 py-3 rounded-2xl text-lg font-semibold border border-pink-200 bg-pink-50 hover:bg-pink-200 hover:text-pink-800 transition-all duration-200 whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-pink-400 shadow-sm"
-                          style={{ textDecoration: 'none', borderBottom: 'none', color:'#be185d' }}>
+                          className="block w-full px-6 py-3 rounded-2xl text-lg font-semibold border border-green-100 bg-white/80 hover:bg-green-100 hover:text-green-800 transition-all duration-200 whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-300 shadow-sm text-green-800"
+                          style={{ textDecoration: 'none', borderBottom: 'none' }}>
                           {item.label}
                         </Link>
                       </li>
                     ))}
                   </ul>
-                  <button 
-                    className="px-8 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-xl font-bold shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all duration-150" 
-                    style={{background:'#db2777'}}
-                    onClick={() => setMenuOpen(false)}
-                  >닫기</button>
+                  {/* 닫기 버튼은 상단에 아이콘으로 대체 */}
                 </div>
               </div>,
               document.body
             )}
-          {/* 모바일 메뉴는 모바일에서만 렌더링 */}
-          <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
+          {/* MobileNav 완전 제거: 우측 슬라이드 메뉴만 사용 */}
         </div>
       </div>
         {/* 데스크탑 메뉴는 md 이상에서만 렌더링, 모바일 메뉴가 열려있을 때는 숨김 */}
