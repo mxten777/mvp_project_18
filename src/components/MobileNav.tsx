@@ -31,13 +31,12 @@ const MobileNav: React.FC<{
     >
       {/* 배경 오버레이 */}
       <div
-        className="fixed inset-0 z-[9999] bg-gradient-to-br from-green-200 via-green-50 to-white/90 backdrop-blur-[2px] animate-fadein"
-        style={{ background: 'linear-gradient(135deg, #bbf7d0 0%, #f0fdf4 60%, #fff 100%)', opacity: 0.98 }}
+        className="fixed inset-0 z-[9999] bg-white animate-fadein"
         onClick={onClose}
       />
       {/* 모바일 메뉴 본체 */}
       <nav
-        className="fixed left-1/2 top-1/2 z-[10000] -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-xs h-[90vh] bg-white rounded-3xl shadow-2xl border-4 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 transition-transform duration-300 animate-slideup"
+        className="fixed inset-0 z-[10000] w-full h-full bg-white shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 transition-transform duration-300 animate-slideup"
         aria-label="모바일 메뉴"
         style={{paddingTop: '68px'}}
       >
