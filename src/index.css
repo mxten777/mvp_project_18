@@ -1,5 +1,4 @@
-
-@import "@fontsource/pretendard/variable.css";
+@import "@fontsource/pretendard";
 @import "@fontsource/noto-sans-kr/variable.css";
 
 @tailwind base;
