@@ -188,13 +188,20 @@ const AdminDownload: React.FC = () => {
         ))}
       </div>
       {detail && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <Card className="p-8 max-w-md w-full relative animate-fadein">
-            <Button className="absolute top-2 right-2 !bg-transparent !shadow-none text-blue-300 hover:text-blue-700 text-2xl px-2 py-0" size="sm" onClick={() => setDetail(null)} aria-label="닫기">&times;</Button>
-            <div className="text-xl font-bold mb-3 text-blue-800">{detail.name}</div>
-            <div className="text-base text-blue-700 mb-4 whitespace-pre-line">{detail.desc}</div>
-            <div className="text-xs text-blue-300">{detail.date}</div>
-          </Card>
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 animate-fadein">
+          <div className="bg-white/95 rounded-2xl border border-gray-200 shadow-2xl p-8 max-w-md w-full relative animate-fadein">
+            <button
+              className="absolute top-3 right-3 p-2 rounded-full bg-gray-100 hover:bg-green-100 text-2xl text-gray-400 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150"
+              onClick={() => setDetail(null)}
+              aria-label="닫기"
+              type="button"
+            >
+              &times;
+            </button>
+            <div className="text-2xl font-extrabold mb-4 text-green-700 tracking-tight">{detail.name}</div>
+            <div className="text-base text-gray-700 mb-6 whitespace-pre-line">{detail.desc}</div>
+            <div className="text-xs text-gray-400 text-right">{detail.date}</div>
+          </div>
         </div>
       )}
     </div>

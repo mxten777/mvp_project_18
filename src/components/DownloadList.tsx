@@ -7,20 +7,21 @@ const downloads = [
 ];
 
 const DownloadList: React.FC = () => (
-  <section className="py-8 max-w-2xl mx-auto">
-    <h3 className="text-xl font-bold text-blue-700 mb-4 text-center">자료실 / 다운로드</h3>
-    <ul className="space-y-4">
+  <section className="py-10 max-w-2xl mx-auto px-2">
+    <h3 className="text-2xl font-bold text-center text-green-600 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>자료실 / 다운로드</h3>
+    <ul className="space-y-5">
       {downloads.map((d, i) => (
-        <li key={i} className="bg-white rounded-lg shadow p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <li key={i} className="bg-white/90 rounded-2xl shadow-xl border border-gray-100 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 hover:shadow-2xl transition">
           <div>
-            <span className="font-semibold">{d.name}</span>
+            <span className="font-semibold text-gray-900 text-base">{d.name}</span>
             <span className="ml-2 text-gray-500 text-sm">{d.desc}</span>
           </div>
           <a
             href={d.url}
             download
-            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="inline-block px-5 py-2.5 rounded-xl bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold text-base shadow-md transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2"
             aria-label={`${d.name} 다운로드`}
+            style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}
           >
             다운로드
           </a>

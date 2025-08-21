@@ -93,8 +93,8 @@ const AdminNotice: React.FC = () => {
       {/* Toast 알림 */}
       {toast && (
         <div
-          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded shadow-lg text-white animate-fadein ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
-          style={{ minWidth: 180, textAlign: "center" }}
+          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-7 py-3 rounded-xl shadow-xl text-base font-bold animate-fadein transition-all duration-200 ${toast.type === "success" ? "bg-green-50 text-green-700 border border-green-300" : "bg-red-50 text-red-700 border border-red-200"}`}
+          style={{ minWidth: 200, textAlign: "center", boxShadow: '0 4px 24px 0 rgba(0,200,83,0.10)' }}
           role="alert"
         >
           {toast.message}
@@ -115,13 +115,13 @@ const AdminNotice: React.FC = () => {
       <h3 className="text-xl font-bold mb-4 text-blue-700 text-center">공지사항 관리</h3>
       <Card className="mb-6">
         <input
-          className="border-2 border-blue-200 rounded-xl p-3 w-full mb-3 text-lg focus:ring-2 focus:ring-blue-300"
+          className="border border-gray-200 rounded-xl p-4 w-full mb-3 text-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150"
           placeholder="제목"
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
         <textarea
-          className="border-2 border-blue-200 rounded-xl p-3 w-full mb-3 text-lg focus:ring-2 focus:ring-blue-300"
+          className="border border-gray-200 rounded-xl p-4 w-full mb-3 text-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150 min-h-[90px]"
           placeholder="내용"
           value={content}
           onChange={e => setContent(e.target.value)}
@@ -129,7 +129,7 @@ const AdminNotice: React.FC = () => {
         <Button className="w-full mt-2" size="md" onClick={addNotice} aria-label="공지 등록">공지 등록</Button>
       </Card>
       <input
-        className="border-2 border-blue-100 rounded-xl p-3 w-full mb-6 text-base focus:ring-2 focus:ring-blue-200"
+        className="border border-gray-200 rounded-xl p-3 w-full mb-6 text-base bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all duration-150"
         placeholder="제목 또는 내용 검색"
         value={search}
         onChange={e => setSearch(e.target.value)}
@@ -139,16 +139,16 @@ const AdminNotice: React.FC = () => {
           .filter(n => n.title.includes(search) || n.content.includes(search))
           .slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
           .map(n => (
-            <Card key={n.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6">
+            <Card key={n.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 bg-white/95 border border-gray-200">
               {editId === n.id ? (
                 <div className="flex-1 mb-2 md:mb-0 md:mr-4">
                   <input
-                    className="border-2 border-blue-200 rounded-xl p-2 w-full mb-2 text-base focus:ring-2 focus:ring-blue-300"
+                    className="border border-gray-200 rounded-xl p-3 w-full mb-2 text-base bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150"
                     value={editTitle}
                     onChange={e => setEditTitle(e.target.value)}
                   />
                   <textarea
-                    className="border-2 border-blue-200 rounded-xl p-2 w-full mb-2 text-base focus:ring-2 focus:ring-blue-300"
+                    className="border border-gray-200 rounded-xl p-3 w-full mb-2 text-base bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150 min-h-[70px]"
                     value={editContent}
                     onChange={e => setEditContent(e.target.value)}
                   />
@@ -159,9 +159,9 @@ const AdminNotice: React.FC = () => {
                 </div>
               ) : (
                 <div>
-                  <button className="font-semibold text-left hover:underline text-lg text-blue-800" onClick={() => setDetail(n)}>{n.title}</button>
-                  <div className="text-base text-blue-500 mb-1 mt-1">{n.content}</div>
-                  <div className="text-xs text-blue-300">{n.date}</div>
+                  <button className="font-semibold text-left hover:underline text-lg text-green-700" onClick={() => setDetail(n)}>{n.title}</button>
+                  <div className="text-base text-gray-700 mb-1 mt-1">{n.content}</div>
+                  <div className="text-xs text-gray-400">{n.date}</div>
                 </div>
               )}
               <div className="flex flex-col gap-2 mt-2 md:mt-0 md:ml-4 min-w-[90px]">
@@ -188,13 +188,20 @@ const AdminNotice: React.FC = () => {
         ))}
       </div>
       {detail && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <Card className="p-8 max-w-md w-full relative animate-fadein">
-            <Button className="absolute top-2 right-2 !bg-transparent !shadow-none text-blue-300 hover:text-blue-700 text-2xl px-2 py-0" size="sm" onClick={() => setDetail(null)} aria-label="닫기">&times;</Button>
-            <div className="text-xl font-bold mb-3 text-blue-800">{detail.title}</div>
-            <div className="text-base text-blue-700 mb-4 whitespace-pre-line">{detail.content}</div>
-            <div className="text-xs text-blue-300">{detail.date}</div>
-          </Card>
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 animate-fadein">
+          <div className="bg-white/95 rounded-2xl border border-gray-200 shadow-2xl p-8 max-w-md w-full relative animate-fadein">
+            <button
+              className="absolute top-3 right-3 p-2 rounded-full bg-gray-100 hover:bg-green-100 text-2xl text-gray-400 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150"
+              onClick={() => setDetail(null)}
+              aria-label="닫기"
+              type="button"
+            >
+              &times;
+            </button>
+            <div className="text-2xl font-extrabold mb-4 text-green-700 tracking-tight">{detail.title}</div>
+            <div className="text-base text-gray-700 mb-6 whitespace-pre-line">{detail.content}</div>
+            <div className="text-xs text-gray-400 text-right">{detail.date}</div>
+          </div>
         </div>
       )}
     </div>

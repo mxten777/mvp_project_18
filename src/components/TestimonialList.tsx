@@ -17,14 +17,14 @@ const testimonials = [
 ];
 
 const TestimonialList: React.FC = () => (
-  <section className="py-16 bg-gradient-to-br from-[#e0e7ff] via-[#fdf6e3] to-white">
-    <h3 className="text-2xl md:text-3xl font-extrabold text-blue-800 mb-12 text-center font-serif tracking-tight">고객 후기</h3>
-  <div className="grid gap-16 md:grid-cols-3 max-w-6xl mx-auto px-6 md:px-8 py-2 md:py-4">
+  <section className="py-16 bg-gradient-to-br from-green-50 via-white to-green-100 rounded-2xl shadow-xl mx-2 mt-6">
+    <h3 className="text-2xl md:text-3xl font-extrabold text-green-700 mb-12 text-center tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>고객 후기</h3>
+    <div className="grid gap-12 md:grid-cols-3 max-w-6xl mx-auto px-6 md:px-8 py-2 md:py-4">
       {testimonials.map((t, i) => (
-        <Card key={i} className="flex flex-col items-center">
-          <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-200 to-yellow-100 shadow text-2xl mb-4 border-2 border-blue-200 text-blue-700">💬</span>
-          <p className="text-blue-800 text-center mb-3 text-lg font-medium leading-relaxed">“{t.text}”</p>
-          <span className="text-base text-blue-400 font-semibold">- {t.name}</span>
+        <Card key={i} className="flex flex-col items-center bg-white/90 rounded-2xl shadow-lg border border-gray-100 p-7">
+          <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-200 to-green-100 shadow text-2xl mb-4 border-2 border-green-200 text-green-700">💬</span>
+          <p className="text-green-700 text-center mb-3 text-lg font-medium leading-relaxed">“{t.text}”</p>
+          <span className="text-base text-green-400 font-semibold">- {t.name}</span>
         </Card>
       ))}
     </div>

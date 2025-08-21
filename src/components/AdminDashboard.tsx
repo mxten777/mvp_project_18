@@ -19,67 +19,67 @@ const AdminDashboard: React.FC = () => {
     { time: "2025-08-18 15:10", action: "신청서 승인", user: "admin" },
   ];
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-6 text-blue-700 text-center">관리자 대시보드</h2>
+    <div className="max-w-4xl mx-auto py-10 px-2">
+      <h2 className="text-2xl font-bold mb-8 text-green-600 text-center tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>관리자 대시보드</h2>
 
       {/* 통계 영역 */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-        <Card className="flex flex-col items-center py-6">
-          <div className="text-3xl font-extrabold text-blue-800 mb-1">{stats.notices}</div>
-          <div className="text-base text-blue-500 font-semibold">공지</div>
+        <Card className="flex flex-col items-center py-7 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
+          <div className="text-3xl font-extrabold text-green-600 mb-1">{stats.notices}</div>
+          <div className="text-base text-green-500 font-semibold">공지</div>
         </Card>
-        <Card className="flex flex-col items-center py-6">
-          <div className="text-3xl font-extrabold text-blue-800 mb-1">{stats.downloads}</div>
-          <div className="text-base text-blue-500 font-semibold">자료</div>
+        <Card className="flex flex-col items-center py-7 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
+          <div className="text-3xl font-extrabold text-green-600 mb-1">{stats.downloads}</div>
+          <div className="text-base text-green-500 font-semibold">자료</div>
         </Card>
-        <Card className="flex flex-col items-center py-6">
-          <div className="text-3xl font-extrabold text-blue-800 mb-1">{stats.users}</div>
-          <div className="text-base text-blue-500 font-semibold">회원</div>
+        <Card className="flex flex-col items-center py-7 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
+          <div className="text-3xl font-extrabold text-green-600 mb-1">{stats.users}</div>
+          <div className="text-base text-green-500 font-semibold">회원</div>
         </Card>
-        <Card className="flex flex-col items-center py-6">
-          <div className="text-3xl font-extrabold text-blue-800 mb-1">{stats.applications}</div>
-          <div className="text-base text-blue-500 font-semibold">신청서</div>
+        <Card className="flex flex-col items-center py-7 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
+          <div className="text-3xl font-extrabold text-green-600 mb-1">{stats.applications}</div>
+          <div className="text-base text-green-500 font-semibold">신청서</div>
         </Card>
       </div>
 
       {/* 최근 활동 로그 */}
-      <Card className="mb-10">
-        <div className="font-bold mb-3 text-blue-700 text-lg">최근 활동 로그</div>
-        <ul className="text-base text-blue-800 space-y-2">
+      <Card className="mb-10 bg-white/90 rounded-2xl shadow-lg border border-gray-100 p-7">
+        <div className="font-bold mb-3 text-green-600 text-lg">최근 활동 로그</div>
+        <ul className="text-base text-green-700 space-y-2">
           {logs.map((log, i) => (
             <li key={i} className="flex justify-between items-center gap-2">
-              <span className="text-blue-400 font-mono text-xs md:text-sm">{log.time}</span>
+              <span className="text-green-400 font-mono text-xs md:text-sm">{log.time}</span>
               <span className="font-semibold">{log.action}</span>
-              <span className="text-blue-300 text-xs md:text-sm">{log.user}</span>
+              <span className="text-green-300 text-xs md:text-sm">{log.user}</span>
             </li>
           ))}
         </ul>
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="flex flex-col items-center py-8">
+        <Card className="flex flex-col items-center py-8 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
           <span className="text-4xl mb-3">📢</span>
-          <div className="font-bold mb-1 text-blue-800">공지사항 관리</div>
-          <div className="text-base text-blue-500 mb-4">공지 등록/수정/삭제</div>
-          <Button className="w-full" onClick={() => navigate("/admin/notice")}>이동</Button>
+          <div className="font-bold mb-1 text-green-700">공지사항 관리</div>
+          <div className="text-base text-green-500 mb-4">공지 등록/수정/삭제</div>
+          <Button className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold rounded-xl py-2 transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2" onClick={() => navigate("/admin/notice")}>이동</Button>
         </Card>
-        <Card className="flex flex-col items-center py-8">
+        <Card className="flex flex-col items-center py-8 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
           <span className="text-4xl mb-3">📁</span>
-          <div className="font-bold mb-1 text-blue-800">자료실 관리</div>
-          <div className="text-base text-blue-500 mb-4">자료 등록/수정/삭제</div>
-          <Button className="w-full" onClick={() => navigate("/admin/download")}>이동</Button>
+          <div className="font-bold mb-1 text-green-700">자료실 관리</div>
+          <div className="text-base text-green-500 mb-4">자료 등록/수정/삭제</div>
+          <Button className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold rounded-xl py-2 transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2" onClick={() => navigate("/admin/download")}>이동</Button>
         </Card>
-        <Card className="flex flex-col items-center py-8">
+        <Card className="flex flex-col items-center py-8 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
           <span className="text-4xl mb-3">👤</span>
-          <div className="font-bold mb-1 text-blue-800">회원 관리</div>
-          <div className="text-base text-blue-500 mb-4">회원 목록/권한 관리</div>
-          <Button className="w-full" onClick={() => navigate("/admin/user")}>이동</Button>
+          <div className="font-bold mb-1 text-green-700">회원 관리</div>
+          <div className="text-base text-green-500 mb-4">회원 목록/권한 관리</div>
+          <Button className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold rounded-xl py-2 transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2" onClick={() => navigate("/admin/user")}>이동</Button>
         </Card>
-        <Card className="flex flex-col items-center py-8">
+        <Card className="flex flex-col items-center py-8 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
           <span className="text-4xl mb-3">📝</span>
-          <div className="font-bold mb-1 text-blue-800">신청서 관리</div>
-          <div className="text-base text-blue-500 mb-4">신청 내역 확인/승인/거절</div>
-          <Button className="w-full" onClick={() => navigate("/admin/application")}>이동</Button>
+          <div className="font-bold mb-1 text-green-700">신청서 관리</div>
+          <div className="text-base text-green-500 mb-4">신청 내역 확인/승인/거절</div>
+          <Button className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold rounded-xl py-2 transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2" onClick={() => navigate("/admin/application")}>이동</Button>
         </Card>
       </div>
     </div>

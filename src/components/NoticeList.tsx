@@ -7,16 +7,16 @@ const notices = [
 ];
 
 const NoticeList: React.FC = () => (
-  <section className="py-8 max-w-2xl mx-auto">
-    <h3 className="text-xl font-bold text-blue-700 mb-4 text-center">공지사항</h3>
-    <ul className="space-y-4">
+  <section className="py-10 max-w-2xl mx-auto px-2">
+    <h3 className="text-2xl font-bold text-center text-green-600 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>공지사항</h3>
+    <ul className="space-y-5">
       {notices.map((n, i) => (
-        <li key={i} className="bg-white rounded-lg shadow p-4">
-          <div className="flex justify-between items-center mb-1">
-            <span className="font-semibold">{n.title}</span>
-            <span className="text-xs text-gray-400">{n.date}</span>
+        <li key={i} className="bg-white/90 rounded-2xl shadow-xl border border-gray-100 p-6 hover:shadow-2xl transition">
+          <div className="flex justify-between items-center mb-2">
+            <span className="font-semibold text-gray-900 text-base">{n.title}</span>
+            <span className="text-xs text-gray-400 font-mono">{n.date}</span>
           </div>
-          <div className="text-gray-700 text-sm">{n.content}</div>
+          <div className="text-gray-700 text-sm mt-1">{n.content}</div>
         </li>
       ))}
     </ul>

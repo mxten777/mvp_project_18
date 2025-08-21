@@ -25,11 +25,16 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto py-12">
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">회원가입</h2>
-      <form className="bg-white rounded shadow p-6 space-y-4" onSubmit={handleSubmit} autoComplete="on" aria-label="회원가입 폼">
+    <div className="max-w-md mx-auto py-12 px-2">
+      <h2 className="text-2xl font-bold mb-7 text-center text-green-600 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>회원가입</h2>
+      <form
+        className="bg-white/90 rounded-2xl shadow-xl p-8 space-y-5 border border-gray-100"
+        onSubmit={handleSubmit}
+        autoComplete="on"
+        aria-label="회원가입 폼"
+      >
         <input
-          className="border p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition shadow-sm"
           placeholder="이름"
           value={name}
           onChange={e => setName(e.target.value)}
@@ -39,7 +44,7 @@ const SignUp: React.FC = () => {
           autoComplete="name"
         />
         <input
-          className="border p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition shadow-sm"
           placeholder="이메일"
           type="email"
           value={email}
@@ -50,7 +55,7 @@ const SignUp: React.FC = () => {
           autoComplete="email"
         />
         <input
-          className="border p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition shadow-sm"
           placeholder="비밀번호"
           type="password"
           value={password}
@@ -61,7 +66,7 @@ const SignUp: React.FC = () => {
           autoComplete="new-password"
         />
         <input
-          className="border p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition shadow-sm"
           placeholder="비밀번호 확인"
           type="password"
           value={confirm}
@@ -71,12 +76,17 @@ const SignUp: React.FC = () => {
           required
           autoComplete="new-password"
         />
-        {error && <div className="text-red-500 text-sm" role="alert">{error}</div>}
-        {success && <div className="text-green-600 text-sm" role="status">{success}</div>}
+        {error && (
+          <div className="text-red-500 text-sm px-1 pt-1 animate-shake" role="alert">{error}</div>
+        )}
+        {success && (
+          <div className="text-green-600 text-sm px-1 pt-1 animate-fade-in" role="status">{success}</div>
+        )}
         <button
-          className="btn btn-blue w-full py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-400 active:bg-blue-700"
+          className="w-full py-3 rounded-xl bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold text-base shadow-md transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2"
           type="submit"
           aria-label="회원가입 제출"
+          style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}
         >
           회원가입
         </button>
