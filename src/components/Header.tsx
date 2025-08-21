@@ -65,7 +65,7 @@ const Header: React.FC = () => {
             </svg>
           </button>
           {/* 모바일 메뉴는 모바일에서만 렌더링 */}
-          <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
+          {menuOpen && <MobileNav open={true} onClose={() => setMenuOpen(false)} />}
         </div>
         {/* 데스크탑 메뉴는 md 이상에서만 렌더링, 모바일 메뉴가 열려있을 때는 숨김 */}
         <ul
