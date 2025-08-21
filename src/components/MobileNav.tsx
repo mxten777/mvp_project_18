@@ -39,12 +39,12 @@ const MobileNav: React.FC<{
       >
         ×
       </button>
-      <ul className="flex flex-col gap-3 mt-8">
+  <ul className="flex flex-col gap-3 mt-8 list-none p-0 m-0 overflow-x-hidden">
         {navLinks.map((link) => (
-          <li key={link.to}>
+          <li key={link.to} className="w-full">
             <Link
               to={link.to}
-              className="block px-5 py-3 rounded-xl text-lg font-semibold text-green-800 hover:bg-green-200 hover:text-green-700 transition-all duration-150 border border-green-100 shadow-sm"
+              className="block w-full px-5 py-3 rounded-xl text-lg font-semibold text-green-800 hover:bg-green-200 hover:text-green-700 transition-all duration-150 shadow-sm whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-400"
               onClick={onClose}
               style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
             >
