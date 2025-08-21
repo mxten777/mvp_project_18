@@ -25,7 +25,8 @@ const MobileNav: React.FC<{
     style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
   >
     <div
-      className="absolute inset-0 bg-green-50 z-[120]"
+      className="absolute inset-0"
+      style={{ backgroundColor: '#ff0000', zIndex: 999 }}
       onClick={onClose}
     />
     <nav
