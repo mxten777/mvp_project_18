@@ -1,10 +1,22 @@
 
+
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const menuItems = [
-    '센터소개', '서비스소개', '서비스비용', '공지사항', '자료실', '고객후기', 'FAQ', '연락처', '상담신청', '마이페이지', '로그인'
+    { to: "/about", label: "센터소개" },
+    { to: "/services", label: "서비스소개" },
+    { to: "/pricing", label: "서비스비용" },
+    { to: "/notices", label: "공지사항" },
+    { to: "/downloads", label: "자료실" },
+    { to: "/reviews", label: "고객후기" },
+    { to: "/faq", label: "FAQ" },
+    { to: "/contact", label: "연락처" },
+    { to: "/apply", label: "상담신청" },
+    { to: "/mypage", label: "마이페이지" },
+    { to: "/login", label: "로그인" },
   ];
   return (
     <header style={{padding: 16, background: '#f0fdf4', borderBottom: '2px solid #22c55e'}}>
@@ -15,7 +27,9 @@ const Header: React.FC = () => {
           <div style={{fontSize: 32, marginBottom: 24}}>메뉴</div>
           <ul style={{listStyle: 'none', padding: 0, margin: 0, marginBottom: 32}}>
             {menuItems.map((item) => (
-              <li key={item} style={{fontSize: 20, margin: '12px 0', textAlign: 'center'}}>{item}</li>
+              <li key={item.to} style={{fontSize: 20, margin: '12px 0', textAlign: 'center'}}>
+                <Link to={item.to} style={{color: '#222', textDecoration: 'none'}} onClick={() => setOpen(false)}>{item.label}</Link>
+              </li>
             ))}
           </ul>
           <button style={{fontSize: 24, padding: 12, background: '#22c55e', color: '#fff', border: 'none', borderRadius: 8}} onClick={() => setOpen(false)}>닫기</button>
