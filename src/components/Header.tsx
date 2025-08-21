@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 
@@ -20,6 +20,18 @@ const navLinks = [
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // 모바일 메뉴가 열릴 때 body 스크롤 차단
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
   return (
   <header className="w-full bg-gradient-to-r from-green-50 via-white to-green-100 shadow-2xl sticky top-0 z-50 border-b-4 border-green-200/70 backdrop-blur-md/60" style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
       <nav
