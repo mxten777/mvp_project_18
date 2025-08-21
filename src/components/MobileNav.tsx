@@ -29,9 +29,9 @@ const MobileNav: React.FC<{
       onClick={onClose}
     />
     <nav
-      className={`absolute top-0 right-0 w-80 max-w-full h-full bg-gradient-to-br from-green-50 via-white to-green-100 shadow-2xl border-l-2 border-green-200 flex flex-col pt-0 pb-6 px-0 z-[130] transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed left-0 top-0 w-full h-full max-w-full bg-gradient-to-br from-green-50 via-white to-green-100 shadow-2xl border-l-2 border-green-200 flex flex-col items-center pt-0 pb-6 px-0 z-[130] transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
       aria-label="모바일 메뉴"
-      style={{paddingTop: '68px', position: 'relative'}}
+      style={{paddingTop: '68px'}}
     >
       {/* 닫기(X) 버튼 - 메뉴 전체 오른쪽 상단에 고정 */}
       <button
@@ -46,7 +46,7 @@ const MobileNav: React.FC<{
         </svg>
       </button>
       {/* 상단 로고/센터명 영역 */}
-      <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white/90 rounded-tr-2xl shadow-md">
+  <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white/90 rounded-tr-2xl shadow-md w-full max-w-xs mx-auto">
         <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-200 to-green-100 shadow-lg border-2 border-green-300">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="16" cy="16" r="15" stroke="#22c55e" strokeWidth="2" fill="#f0fdf4" />
@@ -57,7 +57,7 @@ const MobileNav: React.FC<{
         </span>
         <span className="text-xl font-extrabold tracking-tight text-green-700 drop-shadow-sm whitespace-nowrap" style={{letterSpacing: '0.02em'}}>기쁨글로리 재가복지센터</span>
       </div>
-  <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden">
+  <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden w-full max-w-xs mx-auto">
         {navLinks.map((link) => (
           <li key={link.to} className="w-full">
             <Link
