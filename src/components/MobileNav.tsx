@@ -30,7 +30,8 @@ const MobileNav: React.FC<{
     >
       {/* 배경 오버레이 */}
       <div
-        className="fixed inset-0 z-[9999] bg-white"
+        className="fixed inset-0 z-[9999]"
+        style={{ background: '#fff', opacity: 1, zIndex: 9999 }}
         onClick={onClose}
       />
       {/* 모바일 메뉴 본체 */}
