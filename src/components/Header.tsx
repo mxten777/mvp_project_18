@@ -21,7 +21,7 @@ const navLinks = [
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-  <header className="w-full bg-gradient-to-r from-green-50 via-white to-green-100 shadow-2xl sticky top-0 z-50 border-b-4 border-green-200/70 backdrop-blur-md/60" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
+  <header className="w-full bg-gradient-to-r from-green-50 via-white to-green-100 shadow-2xl sticky top-0 z-50 border-b-4 border-green-200/70 backdrop-blur-md/60" style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
       <nav
         className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between px-4 py-4 md:py-2"
         role="navigation"
@@ -37,7 +37,7 @@ const Header: React.FC = () => {
                 <circle cx="19" cy="14" r="1.5" fill="#22c55e"/>
               </svg>
             </span>
-            <Link to="/" className="text-2xl md:text-3xl font-extrabold tracking-tight text-green-700 drop-shadow-lg" style={{letterSpacing: '0.03em', textShadow:'0 2px 8px #bbf7d0', fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
+            <Link to="/" className="text-2xl md:text-3xl font-extrabold tracking-tight text-green-700 drop-shadow-lg" style={{letterSpacing: '0.03em', textShadow:'0 2px 8px #bbf7d0', fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
               호수바이칼 재가복지센터
             </Link>
           </div>
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 tabIndex={0}
                 onClick={() => setMenuOpen(false)}
-                style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}
+                style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
               >
                 {link.label}
               </Link>

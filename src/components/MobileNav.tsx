@@ -22,7 +22,7 @@ const MobileNav: React.FC<{
   <div
     className={`fixed inset-0 z-[120] transition-all duration-300 ${open ? "visible opacity-100" : "invisible opacity-0"}`}
     aria-hidden={!open}
-    style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}
+  style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
   >
     <div
       className="absolute inset-0 bg-black/30 backdrop-blur-sm transition-all duration-300"
@@ -46,7 +46,7 @@ const MobileNav: React.FC<{
               to={link.to}
               className="block px-5 py-3 rounded-xl text-lg font-semibold text-green-800 hover:bg-green-200 hover:text-green-700 transition-all duration-150 border border-green-100 shadow-sm"
               onClick={onClose}
-              style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}
+              style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
             >
               {link.label}
             </Link>
