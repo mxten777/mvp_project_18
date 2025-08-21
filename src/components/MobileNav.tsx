@@ -33,7 +33,7 @@ const MobileNav: React.FC<{
       aria-label="모바일 메뉴"
     >
       {/* 상단 로고/센터명 영역 */}
-      <div className="relative flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white/80 rounded-tr-2xl shadow-md">
+  <div className="relative z-10 flex items-center gap-3 px-6 pt-7 pb-4 border-b-2 border-green-200/60 bg-white/90 rounded-tr-2xl shadow-md">
         <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-200 to-green-100 shadow-lg border-2 border-green-300">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="16" cy="16" r="15" stroke="#22c55e" strokeWidth="2" fill="#f0fdf4" />
@@ -54,12 +54,12 @@ const MobileNav: React.FC<{
           </svg>
         </button>
       </div>
-      <ul className="flex flex-col gap-3 mt-6 list-none p-0 m-0 overflow-x-hidden">
+  <ul className="flex flex-col gap-1 mt-6 list-none p-0 m-0 overflow-x-hidden">
         {navLinks.map((link) => (
           <li key={link.to} className="w-full">
             <Link
               to={link.to}
-              className="block w-full px-5 py-3 rounded-xl text-lg font-semibold text-green-800 hover:bg-green-200 hover:text-green-700 transition-all duration-150 shadow-sm whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="block w-full px-5 py-3 rounded-xl text-lg font-semibold text-green-800 hover:bg-green-100 hover:text-green-700 transition-all duration-150 shadow-sm whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-400"
               onClick={onClose}
               style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
             >
