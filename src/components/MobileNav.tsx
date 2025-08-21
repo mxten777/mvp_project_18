@@ -59,9 +59,9 @@ const MobileNav: React.FC<{
           <li key={link.to} className="w-full">
             <Link
               to={link.to}
-              className="block w-full px-5 py-3 rounded-xl text-lg font-semibold text-green-800 hover:bg-green-100 hover:text-green-700 transition-all duration-150 shadow-sm whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="block w-full px-6 py-3 rounded-2xl text-lg font-semibold text-green-800 hover:bg-green-100 hover:text-green-700 transition-all duration-150 whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-400"
               onClick={onClose}
-              style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}
+              style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif', textDecoration: 'none', borderBottom: 'none'}}
             >
               {link.label}
             </Link>
