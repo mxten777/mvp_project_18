@@ -17,7 +17,7 @@ const Hero: React.FC = () => (
           <circle cx="28" cy="22" r="2.5" fill="#2563eb"/>
         </svg>
       </div>
-      <h2 className="text-3xl md:text-5xl font-extrabold text-green-700 mb-4 drop-shadow-sm tracking-tight leading-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
+  <h2 className="text-3xl md:text-5xl font-extrabold text-green-700 mb-4 drop-shadow-sm tracking-tight leading-normal md:leading-relaxed select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
         부모님 돌보시는 분들에게<br className="hidden md:block" />
         <span className="bg-gradient-to-r from-green-100 via-white to-green-50 px-2 rounded-xl text-green-800">마음의 짐을 덜어드리겠습니다.</span>
       </h2>
