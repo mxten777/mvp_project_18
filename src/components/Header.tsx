@@ -23,12 +23,12 @@ const Header: React.FC = () => {
   return (
   <header className="w-full bg-gradient-to-r from-green-50 via-white to-green-100 shadow-2xl sticky top-0 z-50 border-b-4 border-green-200/70 backdrop-blur-md/60" style={{fontFamily:'Apple SD Gothic Neo, Malgun Gothic, Segoe UI, Arial, sans-serif'}}>
       <nav
-        className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between px-4 py-4 md:py-2"
+        className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-4 md:py-3 gap-2 md:gap-0"
         role="navigation"
         aria-label="주요 메뉴"
       >
         <div className="flex w-full md:w-auto items-center justify-between">
-          <div className="flex items-center gap-3 select-none w-full">
+          <div className="flex items-center gap-4 select-none w-full md:w-auto">
             <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-green-200 to-green-100 shadow-2xl border-4 border-green-200">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <circle cx="16" cy="16" r="15" stroke="#22c55e" strokeWidth="2" fill="#f0fdf4" />
@@ -37,10 +37,10 @@ const Header: React.FC = () => {
                 <circle cx="19" cy="14" r="1.5" fill="#22c55e"/>
               </svg>
             </span>
-            <span className="ml-2 text-2xl md:text-3xl font-extrabold text-green-700 tracking-tight whitespace-nowrap select-none" style={{letterSpacing:'-0.02em'}}>기쁨글로리 재가복지센터</span>
+            <span className="ml-2 text-2xl md:text-3xl font-extrabold text-green-800 tracking-tight whitespace-nowrap select-none drop-shadow-sm" style={{letterSpacing:'-0.02em'}}>기쁨글로리 재가복지센터</span>
             <div className="flex-1" />
             <button
-              className="block md:hidden z-[99999] pointer-events-auto p-3 ml-2 rounded-full bg-green-600 shadow border border-green-700 text-3xl font-extrabold text-white focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-700 transition-all duration-150"
+              className="block md:hidden z-[99999] pointer-events-auto p-3 ml-2 rounded-full bg-green-600 shadow border border-green-700 text-3xl font-extrabold text-white focus:outline-none focus:ring-2 focus:ring-green-400 active:bg-green-700 transition-all duration-150 hover:scale-105"
               style={{ position: 'relative' }}
               onClick={() => setMenuOpen(true)}
               aria-label="메뉴 열기"
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-200" onClick={() => setMenuOpen(false)} />
                 {/* 우측 슬라이드 메뉴 */}
                 <div
-                  className={`fixed top-0 right-0 h-full w-4/5 max-w-xs bg-gradient-to-br from-green-50 via-white to-green-100/90 border-l-4 border-green-200 shadow-2xl z-10 flex flex-col items-center justify-start px-6 py-10 transition-transform duration-300 transform will-change-transform rounded-l-3xl backdrop-blur-xl ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                  className={`fixed top-0 right-0 h-full w-[85vw] max-w-xs bg-gradient-to-br from-green-50 via-white to-green-100/90 border-l-4 border-green-200 shadow-2xl z-10 flex flex-col items-center justify-start px-3 py-6 transition-transform duration-300 transform will-change-transform rounded-l-3xl backdrop-bl-xl ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                   style={{color:'#166534', left: 'auto', right: 0}}>
                   <div className="flex items-center gap-3 mb-8 w-full justify-between">
                     <button
@@ -66,18 +66,18 @@ const Header: React.FC = () => {
                     </button>
                     <span className="text-3xl font-extrabold tracking-tight" style={{color:'#16a34a'}}>메뉴</span>
                     <button
-                      className="px-3 py-2 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-xl font-bold shadow border border-pink-200 transition-all duration-150"
-                      style={{background:'#db2777'}} onClick={() => setMenuOpen(false)}
+                      className="px-3 py-2 rounded-full bg-green-600 hover:bg-green-700 text-white text-xl font-bold shadow border border-green-200 transition-all duration-150"
+                      style={{background:'#16a34a'}} onClick={() => setMenuOpen(false)}
                       aria-label="닫기"
                     >
                       ×
                     </button>
                   </div>
-                  <ul className="flex flex-col gap-2 mb-8 w-full">
+                  <ul className="flex flex-col gap-1.5 mb-6 w-full">
                     {navLinks.map((item) => (
                       <li key={item.to} className="w-full">
                         <Link to={item.to} onClick={() => setMenuOpen(false)}
-                          className="block w-full px-6 py-3 rounded-2xl text-lg font-semibold border border-green-100 bg-white/80 hover:bg-green-100 hover:text-green-800 transition-all duration-200 whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-300 shadow-sm text-green-800"
+                          className="block w-[90%] mx-auto px-3 py-2.5 rounded-2xl text-base font-semibold border border-green-100 bg-white/80 hover:bg-green-100 hover:text-green-800 transition-all duration-200 whitespace-nowrap overflow-hidden text-ellipsis focus:outline-none focus:ring-2 focus:ring-green-300 shadow-sm text-green-800"
                           style={{ textDecoration: 'none', borderBottom: 'none' }}>
                           {item.label}
                         </Link>
@@ -95,14 +95,14 @@ const Header: React.FC = () => {
         {/* 데스크탑 메뉴는 md 이상에서만 렌더링, 모바일 메뉴가 열려있을 때는 숨김 */}
         <ul
           id="main-nav-menu"
-          className={`hidden md:flex md:flex-row flex-wrap gap-3 md:gap-7 text-lg font-semibold w-full md:w-auto mt-2 md:mt-0 bg-white/95 md:bg-transparent border-t-2 md:border-0 border-green-200 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none px-3 md:px-0 py-3 md:py-0 backdrop-blur-sm`}
+          className={`hidden md:flex md:flex-row flex-wrap gap-3 md:gap-6 text-lg font-semibold w-full md:w-auto mt-2 md:mt-0 bg-white/90 md:bg-transparent border-t-2 md:border-0 border-green-200 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none px-3 md:px-0 py-3 md:py-0 backdrop-blur-sm items-center justify-end`}
           role="menubar"
         >
           {navLinks.map((link) => (
             <li key={link.to} role="none">
               <Link
                 to={link.to}
-                className="block px-6 py-2 rounded-2xl hover:bg-green-50 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-200 active:bg-green-100 transition-all duration-150 text-green-800 text-lg tracking-wide shadow border border-green-200/50 drop-shadow-sm font-semibold"
+                className="block px-5 py-2 rounded-2xl hover:bg-green-100 hover:text-green-800 focus:outline-none focus:ring-2 focus:ring-green-200 active:bg-green-200 transition-all duration-150 text-green-800 text-lg tracking-wide shadow border border-green-200/50 drop-shadow-sm font-semibold"
                 aria-label={link.label}
                 role="menuitem"
                 tabIndex={0}
