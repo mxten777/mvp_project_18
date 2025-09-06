@@ -40,11 +40,11 @@ const AdminApplication: React.FC = () => {
   };
 
   return (
-  <div className="max-w-3xl mx-auto py-10 px-2 relative">
+  <div className="max-w-3xl mx-auto py-10 px-2 relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       {/* Toast 알림 */}
       {toast && (
         <div
-          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-xl shadow-xl text-white animate-fadein ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
+          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-xl shadow-xl text-white animate-fadein ${toast.type === "success" ? "bg-green-600 dark:bg-green-800" : "bg-red-600 dark:bg-red-800"}`}
           style={{ minWidth: 180, textAlign: "center", fontFamily:'Pretendard,Noto Sans KR,sans-serif' }}
           role="alert"
         >
@@ -66,18 +66,18 @@ const AdminApplication: React.FC = () => {
       <h3 className="text-2xl font-bold mb-7 text-center text-green-600 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>신청서 관리</h3>
       <ul className="space-y-6">
         {apps.map(a => (
-          <Card key={a.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-7 bg-white/90 rounded-2xl shadow-lg border border-gray-100">
+          <Card key={a.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-7 bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
             <div>
-              <div className="font-semibold text-lg text-green-700">{a.name} <span className="text-xs text-green-300">({a.phone})</span></div>
-              <div className="text-base text-green-500 mb-1">서비스: {a.service}</div>
-              <div className="text-xs text-green-300">신청일: {a.date}</div>
-              <div className="text-xs mt-1">상태: <span className={a.status === "승인" ? "text-green-600 font-bold" : a.status === "거절" ? "text-red-600 font-bold" : "text-green-400"}>{a.status}</span></div>
+              <div className="font-semibold text-lg text-green-700 dark:text-green-200">{a.name} <span className="text-xs text-green-300 dark:text-green-400">({a.phone})</span></div>
+              <div className="text-base text-green-500 dark:text-green-300 mb-1">서비스: {a.service}</div>
+              <div className="text-xs text-green-300 dark:text-green-400">신청일: {a.date}</div>
+              <div className="text-xs mt-1">상태: <span className={a.status === "승인" ? "text-green-600 dark:text-green-300 font-bold" : a.status === "거절" ? "text-red-600 dark:text-red-400 font-bold" : "text-green-400 dark:text-green-500"}>{a.status}</span></div>
             </div>
             <div className="flex gap-2 mt-2 md:mt-0 min-w-[180px] flex-wrap">
-              <Button size="sm" variant="secondary" className="bg-green-100 hover:bg-green-200 text-green-700 font-bold rounded-xl transition" onClick={() => setStatus(a.id, "승인")}>승인</Button>
-              <Button size="sm" variant="secondary" className="bg-red-100 hover:bg-red-200 text-red-600 font-bold rounded-xl transition" onClick={() => setStatus(a.id, "거절")}>거절</Button>
-              <Button size="sm" variant="secondary" className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold rounded-xl transition" onClick={() => setStatus(a.id, "대기")}>대기</Button>
-              <Button size="sm" variant="secondary" className="bg-red-100 hover:bg-red-200 text-red-600 font-bold rounded-xl transition" onClick={() => deleteApp(a.id)}>삭제</Button>
+              <Button size="sm" variant="secondary" className="bg-green-100 dark:bg-green-900 hover:bg-green-200 dark:hover:bg-green-800 text-green-700 dark:text-green-200 font-bold rounded-xl transition" onClick={() => setStatus(a.id, "승인")}>승인</Button>
+              <Button size="sm" variant="secondary" className="bg-red-100 dark:bg-red-900 hover:bg-red-200 dark:hover:bg-red-800 text-red-600 dark:text-red-300 font-bold rounded-xl transition" onClick={() => setStatus(a.id, "거절")}>거절</Button>
+              <Button size="sm" variant="secondary" className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-200 font-bold rounded-xl transition" onClick={() => setStatus(a.id, "대기")}>대기</Button>
+              <Button size="sm" variant="secondary" className="bg-red-100 dark:bg-red-900 hover:bg-red-200 dark:hover:bg-red-800 text-red-600 dark:text-red-300 font-bold rounded-xl transition" onClick={() => deleteApp(a.id)}>삭제</Button>
             </div>
           </Card>
         ))}

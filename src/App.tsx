@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <main className="max-w-7xl mx-auto px-4 py-8 min-h-[80vh]">{children}</main>
+  <main className="max-w-7xl mx-auto px-4 py-8 min-h-[80vh] bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">{children}</main>
 );
 
 

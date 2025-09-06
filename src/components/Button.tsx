@@ -9,8 +9,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const base =
   "inline-flex items-center justify-center font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-150 select-none shadow-md hover:shadow-xl border-2";
 const variants = {
-  primary: "bg-gradient-to-br from-[#b4b4e6] to-[#fdf6e3] text-[#3b3b6d] border-[#b4b4e6] hover:from-[#a3a3d1] hover:to-[#fef9c3] hover:text-[#22224c] hover:border-[#a3a3d1]",
-  secondary: "bg-white text-[#3b3b6d] border-[#b4b4e6] hover:bg-[#fdf6e3] hover:text-[#22224c] hover:border-[#a3a3d1]",
+  primary: "bg-gradient-to-br from-[#b4b4e6] to-[#fdf6e3] text-[#3b3b6d] border-[#b4b4e6] hover:from-[#a3a3d1] hover:to-[#fef9c3] hover:text-[#22224c] hover:border-[#a3a3d1] dark:from-gray-800 dark:to-gray-700 dark:text-gray-100 dark:border-gray-700 dark:hover:from-gray-700 dark:hover:to-gray-800 dark:hover:text-white dark:hover:border-gray-600",
+  secondary: "bg-white text-[#3b3b6d] border-[#b4b4e6] hover:bg-[#fdf6e3] hover:text-[#22224c] hover:border-[#a3a3d1] dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:hover:text-white dark:hover:border-gray-600",
 };
 const sizes = {
   lg: "px-8 py-4 text-lg",

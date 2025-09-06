@@ -89,11 +89,11 @@ const AdminDownload: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-8 relative">
+    <div className="max-w-2xl mx-auto py-8 relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       {/* Toast 알림 */}
       {toast && (
         <div
-          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded shadow-lg text-white animate-fadein ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
+          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded shadow-lg text-white animate-fadein ${toast.type === "success" ? "bg-green-600 dark:bg-green-800" : "bg-red-600 dark:bg-red-800"}`}
           style={{ minWidth: 180, textAlign: "center" }}
           role="alert"
         >
@@ -113,15 +113,15 @@ const AdminDownload: React.FC = () => {
         @keyframes spin { 100% { transform: rotate(360deg); } }
       `}</style>
       <h3 className="text-xl font-bold mb-4 text-blue-700 text-center">자료실 관리</h3>
-      <Card className="mb-6">
+      <Card className="mb-6 dark:bg-gray-800 dark:border-gray-700">
         <input
-          className="border-2 border-blue-200 rounded-xl p-3 w-full mb-3 text-lg focus:ring-2 focus:ring-blue-300"
+          className="border-2 border-blue-200 dark:border-blue-700 rounded-xl p-3 w-full mb-3 text-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition-all duration-150"
           placeholder="파일명"
           value={name}
           onChange={e => setName(e.target.value)}
         />
         <input
-          className="border-2 border-blue-200 rounded-xl p-3 w-full mb-3 text-lg focus:ring-2 focus:ring-blue-300"
+          className="border-2 border-blue-200 dark:border-blue-700 rounded-xl p-3 w-full mb-3 text-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition-all duration-150"
           placeholder="설명"
           value={desc}
           onChange={e => setDesc(e.target.value)}
@@ -129,7 +129,7 @@ const AdminDownload: React.FC = () => {
         <Button className="w-full mt-2" size="md" onClick={addFile} aria-label="자료 등록">자료 등록</Button>
       </Card>
       <input
-        className="border-2 border-blue-100 rounded-xl p-3 w-full mb-6 text-base focus:ring-2 focus:ring-blue-200"
+        className="border-2 border-blue-100 dark:border-blue-700 rounded-xl p-3 w-full mb-6 text-base bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-700 transition-all duration-150"
         placeholder="파일명 또는 설명 검색"
         value={search}
         onChange={e => setSearch(e.target.value)}
@@ -139,16 +139,16 @@ const AdminDownload: React.FC = () => {
           .filter(f => f.name.includes(search) || f.desc.includes(search))
           .slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
           .map(f => (
-            <Card key={f.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6">
+            <Card key={f.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 bg-white/95 dark:bg-gray-800/95 border border-gray-200 dark:border-gray-700">
               {editId === f.id ? (
                 <div className="flex-1 mb-2 md:mb-0 md:mr-4">
                   <input
-                    className="border-2 border-blue-200 rounded-xl p-2 w-full mb-2 text-base focus:ring-2 focus:ring-blue-300"
+                    className="border-2 border-blue-200 dark:border-blue-700 rounded-xl p-2 w-full mb-2 text-base bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition-all duration-150"
                     value={editName}
                     onChange={e => setEditName(e.target.value)}
                   />
                   <input
-                    className="border-2 border-blue-200 rounded-xl p-2 w-full mb-2 text-base focus:ring-2 focus:ring-blue-300"
+                    className="border-2 border-blue-200 dark:border-blue-700 rounded-xl p-2 w-full mb-2 text-base bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition-all duration-150"
                     value={editDesc}
                     onChange={e => setEditDesc(e.target.value)}
                   />
@@ -159,9 +159,9 @@ const AdminDownload: React.FC = () => {
                 </div>
               ) : (
                 <div>
-                  <button className="font-semibold text-left hover:underline text-lg text-blue-800" onClick={() => setDetail(f)}>{f.name}</button>
-                  <div className="text-base text-blue-500 mb-1 mt-1">{f.desc}</div>
-                  <div className="text-xs text-blue-300">{f.date}</div>
+                  <button className="font-semibold text-left hover:underline text-lg text-blue-800 dark:text-blue-300" onClick={() => setDetail(f)}>{f.name}</button>
+                  <div className="text-base text-blue-500 dark:text-blue-200 mb-1 mt-1">{f.desc}</div>
+                  <div className="text-xs text-blue-300 dark:text-blue-400">{f.date}</div>
                 </div>
               )}
               <div className="flex flex-col gap-2 mt-2 md:mt-0 md:ml-4 min-w-[90px]">
@@ -188,19 +188,19 @@ const AdminDownload: React.FC = () => {
         ))}
       </div>
       {detail && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 animate-fadein">
-          <div className="bg-white/95 rounded-2xl border border-gray-200 shadow-2xl p-8 max-w-md w-full relative animate-fadein">
+        <div className="fixed inset-0 bg-black/30 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fadein">
+          <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl p-8 max-w-md w-full relative animate-fadein">
             <button
-              className="absolute top-3 right-3 p-2 rounded-full bg-gray-100 hover:bg-green-100 text-2xl text-gray-400 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-150"
+              className="absolute top-3 right-3 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-900 text-2xl text-gray-400 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-green-700 transition-all duration-150"
               onClick={() => setDetail(null)}
               aria-label="닫기"
               type="button"
             >
               &times;
             </button>
-            <div className="text-2xl font-extrabold mb-4 text-green-700 tracking-tight">{detail.name}</div>
-            <div className="text-base text-gray-700 mb-6 whitespace-pre-line">{detail.desc}</div>
-            <div className="text-xs text-gray-400 text-right">{detail.date}</div>
+            <div className="text-2xl font-extrabold mb-4 text-green-700 dark:text-green-300 tracking-tight">{detail.name}</div>
+            <div className="text-base text-gray-700 dark:text-gray-200 mb-6 whitespace-pre-line">{detail.desc}</div>
+            <div className="text-xs text-gray-400 dark:text-gray-400 text-right">{detail.date}</div>
           </div>
         </div>
       )}

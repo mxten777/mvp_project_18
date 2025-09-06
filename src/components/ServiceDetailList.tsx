@@ -17,12 +17,12 @@ const serviceDetails = [
 
 const ServiceDetailList: React.FC = () => (
   <section className="py-10 max-w-2xl mx-auto px-2">
-    <h3 className="text-2xl font-bold text-center text-green-600 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>서비스 상세 안내</h3>
+    <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>서비스 상세 안내</h3>
     <ul className="space-y-5">
       {serviceDetails.map((s, i) => (
-        <li key={i} className="bg-white/90 rounded-2xl shadow-xl border border-gray-100 p-6 hover:shadow-2xl transition">
-          <div className="font-semibold text-lg text-gray-900 mb-2">{s.title}</div>
-          <div className="text-gray-700 text-sm">{s.desc}</div>
+        <li key={i} className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-6 hover:shadow-2xl transition">
+          <div className="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-2">{s.title}</div>
+          <div className="text-gray-700 dark:text-gray-300 text-sm">{s.desc}</div>
         </li>
       ))}
     </ul>
