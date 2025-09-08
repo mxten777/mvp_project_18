@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <main className="max-w-7xl mx-auto px-4 py-8 min-h-[80vh] bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">{children}</main>
+  <main className="w-full py-8 min-h-[80vh] bg-transparent dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">{children}</main>
 );
 
 
@@ -30,9 +30,9 @@ const Home = () => (
 );
 
 const About = () => (
-  <section className="py-10 max-w-2xl mx-auto px-2">
+  <section className="py-10 w-full">
     <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>센터소개</h3>
-    <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200">
+  <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200 max-w-2xl mx-auto">
       <p>바이칼 재가복지센터는 어르신과 가족의 행복을 최우선으로 생각합니다. 방문요양, 방문간호, 방문목욕 등 다양한 재가복지 서비스를 통해 어르신의 건강과 일상, 가족의 안심을 함께 지켜드립니다.</p>
       <ul className="list-disc pl-5 space-y-1">
         <li>전문 요양보호사, 간호사, 사회복지사 등 우수 인력 보유</li>
@@ -46,18 +46,18 @@ const About = () => (
 );
 import ServiceDetailList from "./components/ServiceDetailList";
 const Services = () => (
-  <section className="py-10 max-w-3xl mx-auto px-2">
+  <section className="py-10 w-full">
     <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>서비스 소개</h3>
-    <div className="mb-6 text-base leading-relaxed text-gray-800 dark:text-gray-200">
+  <div className="mb-6 text-base leading-relaxed text-gray-800 dark:text-gray-200 max-w-3xl mx-auto px-2">
       <p>바이칼 재가복지센터는 방문요양, 방문간호, 방문목욕 등 다양한 재가복지 서비스를 제공합니다. 각 서비스는 어르신의 건강상태와 가족의 상황에 맞춰 맞춤형으로 설계됩니다.</p>
     </div>
-    <ServiceDetailList />
+  <ServiceDetailList />
   </section>
 );
 const Pricing = () => (
-  <section className="py-10 max-w-2xl mx-auto px-2">
+  <section className="py-10 w-full">
     <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>서비스 비용 안내</h3>
-    <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200">
+  <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200 max-w-2xl mx-auto">
       <p>국가 장기요양보험 지원으로 전체 비용의 85% 이상이 지원됩니다. 본인부담금은 서비스 종류, 등급, 이용시간에 따라 다르며, 자세한 내용은 상담 시 안내해드립니다.</p>
       <ul className="list-disc pl-5 space-y-1">
         <li>방문요양: 월 10만원~20만원대(본인부담 기준)</li>
@@ -69,9 +69,9 @@ const Pricing = () => (
   </section>
 );
 const Reviews = () => (
-  <section className="py-10 max-w-2xl mx-auto px-2">
+  <section className="py-10 w-full">
     <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>고객 후기</h3>
-    <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200">
+  <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200 max-w-2xl mx-auto">
       <p>실제 이용자와 가족분들의 소중한 후기를 통해 센터의 신뢰와 만족도를 확인하세요.</p>
   <ul className="list-disc pl-5 space-y-3">
         <li className="text-white">“요양보호사 선생님이 친절하고 세심하게 돌봐주셔서 안심이 됩니다. 매번 시간 맞춰 방문해주셔서 감사해요.”</li>

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 const Features: React.FC = () => (
-  <section className="py-16 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 rounded-2xl shadow-xl mx-2 mt-6">
+  <section className="py-16 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 shadow-xl w-full mt-6">
     <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-3 px-6 md:px-8">
       <Card className="flex flex-col items-center bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-7">
         <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-green-200 to-green-100 dark:from-gray-800 dark:to-gray-700 shadow text-4xl mb-4 border-2 border-green-200 dark:border-gray-700">💸</span>

@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 
 const Hero: React.FC = () => (
-  <section className="relative py-16 md:py-20 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 flex flex-col items-center justify-center overflow-hidden rounded-2xl shadow-xl mx-2 mt-4">
+  <section className="relative py-16 md:py-20 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 flex flex-col items-center justify-center overflow-hidden shadow-xl w-full mt-4">
     <div className="absolute inset-0 pointer-events-none select-none hidden md:block">
       <svg width="100%" height="100%" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
         <path fill="#e0e7ff" fillOpacity="0.25" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,154.7C840,149,960,171,1080,186.7C1200,203,1320,213,1380,218.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />

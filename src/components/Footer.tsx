@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer: React.FC = () => (
-  <footer className="w-full bg-gradient-to-r from-green-100 via-white to-green-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 border-t-2 border-green-200/70 dark:border-gray-800 py-7 px-4 mt-20 shadow-inner text-green-900 dark:text-gray-100 text-center text-sm select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
+  <footer className="w-full bg-gradient-to-r from-green-100 via-white to-green-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 border-t-2 border-green-200/70 dark:border-gray-800 py-7 px-4 mt-0 shadow-inner text-green-900 dark:text-gray-100 text-center text-sm select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
       <div className="flex items-center gap-3 mb-2 md:mb-0">
   <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-200 to-green-100 dark:from-gray-800 dark:to-gray-700 shadow-lg border-4 border-green-200 dark:border-gray-700">

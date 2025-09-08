@@ -45,7 +45,7 @@ const faqs = [
 ];
 
 const FAQList: React.FC = () => (
-  <section className="py-14 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 rounded-2xl shadow-xl mx-2 mt-6">
+  <section className="py-14 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 shadow-xl w-full mt-6">
   <h3 className="text-2xl md:text-3xl font-extrabold text-green-700 dark:text-gray-100 mb-10 text-center tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>자주 묻는 질문</h3>
     <div className="space-y-4 max-w-3xl mx-auto px-4 md:px-6 py-1 md:py-2">
       {faqs.map((faq, i) => (
