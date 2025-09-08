@@ -73,12 +73,15 @@ const Reviews = () => (
     <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>고객 후기</h3>
     <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200">
       <p>실제 이용자와 가족분들의 소중한 후기를 통해 센터의 신뢰와 만족도를 확인하세요.</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>“요양보호사 선생님이 친절하고 세심하게 돌봐주셔서 안심이 됩니다.”</li>
-        <li>“상담부터 서비스까지 빠르고 투명해서 믿음이 갑니다.”</li>
-        <li>“어르신이 밝아지고 가족 모두가 만족합니다.”</li>
+  <ul className="list-disc pl-5 space-y-3">
+        <li className="text-white">“요양보호사 선생님이 친절하고 세심하게 돌봐주셔서 안심이 됩니다. 매번 시간 맞춰 방문해주셔서 감사해요.”</li>
+        <li className="text-blue-300">“상담부터 서비스까지 빠르고 투명해서 믿음이 갑니다. 궁금한 점도 바로바로 안내해주셔서 좋았습니다.”</li>
+        <li className="text-white">“어르신이 밝아지고 가족 모두가 만족합니다. 집안 분위기도 한결 좋아졌어요.”</li>
+        <li className="text-blue-300">“갑작스러운 일정 변경에도 유연하게 대응해주셔서 정말 고마웠습니다.”</li>
+        <li className="text-white">“방문간호 서비스 덕분에 건강 관리가 한결 수월해졌어요. 전문 간호사님께 감사드립니다.”</li>
+        <li className="text-blue-300">“기초생활수급자라 비용이 부담됐는데, 친절하게 안내해주셔서 큰 도움이 됐습니다.”</li>
       </ul>
-      <p>더 많은 후기는 상담 시 안내해드립니다.</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">※ 더 많은 실제 후기는 상담 시 안내해드립니다.</p>
     </div>
   </section>
 );

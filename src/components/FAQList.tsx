@@ -45,9 +45,9 @@ const faqs = [
 ];
 
 const FAQList: React.FC = () => (
-  <section className="py-16 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 rounded-2xl shadow-xl mx-2 mt-6">
-  <h3 className="text-2xl md:text-3xl font-extrabold text-green-700 dark:text-gray-100 mb-12 text-center tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>자주 묻는 질문</h3>
-    <div className="space-y-8 max-w-3xl mx-auto px-6 md:px-8 py-2 md:py-4">
+  <section className="py-14 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 rounded-2xl shadow-xl mx-2 mt-6">
+  <h3 className="text-2xl md:text-3xl font-extrabold text-green-700 dark:text-gray-100 mb-10 text-center tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>자주 묻는 질문</h3>
+    <div className="space-y-4 max-w-3xl mx-auto px-4 md:px-6 py-1 md:py-2">
       {faqs.map((faq, i) => (
         <Card key={i} className="p-0 overflow-hidden bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
           <details className="group transition-all duration-200">
@@ -55,7 +55,7 @@ const FAQList: React.FC = () => (
               <span className="inline-block w-6 h-6 text-green-400 dark:text-gray-300">❓</span>
               {faq.q}
             </summary>
-            <p className="mt-3 text-green-700 dark:text-gray-100 text-base leading-relaxed font-medium">{faq.a}</p>
+            <p className="mt-2 text-green-700 dark:text-gray-100 text-base leading-normal font-medium">{faq.a}</p>
           </details>
         </Card>
       ))}
