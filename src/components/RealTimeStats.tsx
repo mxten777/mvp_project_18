@@ -18,31 +18,31 @@ const RealTimeStats: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-secondary-50 via-white to-accent-50 dark:from-secondary-900 dark:via-secondary-800 dark:to-accent-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-secondary-50 via-white to-accent-50 dark:from-secondary-900 dark:via-secondary-800 dark:to-accent-900/50 mobile-safe">
+      <div className="max-w-7xl mx-auto mobile-container">
         {/* 헤더 */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-accent-500 to-accent-600 rounded-full mb-6 shadow-lg"
+            className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-accent-500 to-accent-600 rounded-full mb-4 sm:mb-6 shadow-lg"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
           >
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
               <path d="M3 3v18h18"/>
               <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
             </svg>
           </motion.div>
           
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-6 tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-4 sm:mb-6 tracking-tight mobile-text"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

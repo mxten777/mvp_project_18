@@ -4,29 +4,18 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Button from "./Button";
 import LanguageSelector from "./LanguageSelector";
-import AccessibleNavigation from "./AccessibleNavigation";
 
 const navLinks = [
-  { to: "/about", labelKey: "navigation.about", icon: "🏠" },
-  { to: "/services", labelKey: "navigation.services", icon: "💊" },
-  { to: "/pricing", labelKey: "navigation.pricing", icon: "💰" },
-  { to: "/notices", labelKey: "navigation.notices", icon: "📢" },
-  { to: "/downloads", labelKey: "navigation.downloads", icon: "📁" },
-  { to: "/reviews", labelKey: "navigation.reviews", icon: "⭐" },
-  { to: "/faq", labelKey: "navigation.faq", icon: "❓" },
-  { to: "/contact", labelKey: "navigation.contact", icon: "📞" },
-  { to: "/apply", labelKey: "navigation.apply", icon: "✨" },
-  { to: "/privacy", labelKey: "navigation.privacy", icon: "🛡️" },
-  { to: "/security", labelKey: "navigation.security", icon: "🔒" },
-  { to: "/analytics", labelKey: "navigation.analytics", icon: "📊" },
-  { to: "/analytics/custom", labelKey: "navigation.customAnalytics", icon: "🔍" },
-  { to: "/ai", labelKey: "navigation.ai", icon: "🤖" },
-  { to: "/ai/chatbot", labelKey: "navigation.aiChatbot", icon: "💬" },
-  { to: "/collaboration", labelKey: "navigation.collaboration", icon: "👥" },
-  { to: "/security-center", labelKey: "navigation.securityCenter", icon: "🛡️" },
-  { to: "/globalization", labelKey: "navigation.globalization", icon: "🌍" },
-  { to: "/mypage", labelKey: "navigation.mypage", icon: "👤" },
-  { to: "/login", labelKey: "navigation.login", icon: "🔐" },
+  { to: "/about", labelKey: "navigation.about", icon: "🏠", primary: true },
+  { to: "/services", labelKey: "navigation.services", icon: "💊", primary: true },
+  { to: "/pricing", labelKey: "navigation.pricing", icon: "💰", primary: true },
+  { to: "/notices", labelKey: "navigation.notices", icon: "📢", primary: true },
+  { to: "/contact", labelKey: "navigation.contact", icon: "📞", primary: true },
+  { to: "/downloads", labelKey: "navigation.downloads", icon: "�", primary: false },
+  { to: "/reviews", labelKey: "navigation.reviews", icon: "⭐", primary: false },
+  { to: "/faq", labelKey: "navigation.faq", icon: "❓", primary: false },
+  { to: "/mypage", labelKey: "navigation.mypage", icon: "👤", primary: false },
+  { to: "/login", labelKey: "navigation.login", icon: "🔐", primary: false },
 ];
 
 const Header: React.FC = () => {
@@ -77,9 +66,10 @@ const Header: React.FC = () => {
           </span>
         </Link>
 
-        {/* 데스크탑 메뉴 */}
+        {/* 데스크탑 메뉴 - 주요 메뉴만 표시 */}
         <ul className="hidden lg:flex items-center gap-2">
-          {navLinks.slice(0, 8).map((link) => (
+          {/* 주요 서비스 메뉴만 표시 */}
+          {navLinks.filter(link => link.primary).map((link) => (
             <li key={link.to}>
               <Link
                 to={link.to}
@@ -94,7 +84,7 @@ const Header: React.FC = () => {
             </li>
           ))}
           
-          {/* CTA 버튼 */}
+          {/* 언어 선택기와 CTA 버튼 */}
           <li>
             <LanguageSelector />
           </li>
@@ -110,23 +100,22 @@ const Header: React.FC = () => {
           </li>
         </ul>
 
-        {/* 접근성 네비게이션 */}
-        <AccessibleNavigation className="lg:hidden" />
-
         {/* 모바일 메뉴 버튼 */}
-        <Button
-          variant="primary"
-          size="icon"
-          className="lg:hidden"
-          onClick={() => setMenuOpen(true)}
-          aria-label="메뉴 열기"
-        >
-          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </Button>
+        <div className="lg:hidden flex items-center gap-2">
+          <LanguageSelector />
+          <Button
+            variant="primary"
+            size="icon"
+            onClick={() => setMenuOpen(true)}
+            aria-label="메뉴 열기"
+          >
+            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </Button>
+        </div>
 
         {/* 모바일 메뉴 오버레이 */}
         {menuOpen && createPortal(
@@ -182,6 +171,9 @@ const Header: React.FC = () => {
 
               {/* 하단 CTA */}
               <div className="p-6 border-t border-primary-200/30 dark:border-primary-700/30 space-y-4">
+                <div className="flex items-center justify-center">
+                  <LanguageSelector />
+                </div>
                 <Button
                   variant="primary"
                   size="lg"

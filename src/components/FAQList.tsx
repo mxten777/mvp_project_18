@@ -46,16 +46,44 @@ const faqs = [
 
 const FAQList: React.FC = () => (
   <section className="py-14 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 shadow-xl w-full mt-6">
-  <h3 className="text-2xl md:text-3xl font-extrabold text-green-700 dark:text-gray-100 mb-10 text-center tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>자주 묻는 질문</h3>
+    <div className="text-center mb-10">
+      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-green-700 dark:text-gray-100 tracking-tight select-none relative inline-block" 
+          style={{
+            fontFamily: 'Pretendard Variable, Inter, system-ui, sans-serif',
+            fontWeight: '500',
+            letterSpacing: '-0.02em'
+          }}>
+        <span className="relative z-10">자주 묻는 질문</span>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-green-400 to-green-600 opacity-70"></div>
+      </h3>
+      <p className="text-sm text-green-600 dark:text-gray-400 mt-2 font-light">
+        궁금하신 점들을 확인해보세요
+      </p>
+    </div>
     <div className="space-y-4 max-w-3xl mx-auto px-4 md:px-6 py-1 md:py-2">
       {faqs.map((faq, i) => (
         <Card key={i} className="p-0 overflow-hidden bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
           <details className="group transition-all duration-200">
-            <summary className="font-bold cursor-pointer text-green-700 dark:text-gray-100 text-lg flex items-center gap-2 group-open:text-green-600 dark:group-open:text-gray-300 group-open:bg-green-50 dark:group-open:bg-gray-700 px-3 py-2 rounded-xl transition-all duration-200 select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>
-              <span className="inline-block w-6 h-6 text-green-400 dark:text-gray-300">❓</span>
+            <summary className="font-medium cursor-pointer text-green-700 dark:text-gray-100 text-base sm:text-lg flex items-center gap-2 group-open:text-green-600 dark:group-open:text-gray-300 group-open:bg-green-50 dark:group-open:bg-gray-700 px-4 py-3 rounded-xl transition-all duration-200 select-none" 
+                     style={{
+                       fontFamily: 'Pretendard Variable, Inter, system-ui, sans-serif',
+                       fontWeight: '500',
+                       letterSpacing: '-0.01em'
+                     }}>
+              <span className="inline-block w-5 h-5 sm:w-6 sm:h-6 text-green-400 dark:text-gray-300">❓</span>
               {faq.q}
             </summary>
-            <p className="mt-2 text-green-700 dark:text-gray-100 text-base leading-normal font-medium">{faq.a}</p>
+            <div className="px-4 pb-4">
+              <p className="mt-2 text-green-600 dark:text-gray-200 text-sm sm:text-base leading-relaxed font-normal"
+                 style={{
+                   fontFamily: 'Pretendard Variable, Inter, system-ui, sans-serif',
+                   fontWeight: '400',
+                   letterSpacing: '-0.005em',
+                   lineHeight: '1.6'
+                 }}>
+                {faq.a}
+              </p>
+            </div>
           </details>
         </Card>
       ))}

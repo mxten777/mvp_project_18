@@ -5,11 +5,16 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
   html {
     font-family: 'Pretendard Variable', 'Pretendard', 'Inter', 'system-ui', 'sans-serif';
     @apply bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-800 text-secondary-900 dark:text-secondary-50;
     min-height: 100%;
     width: 100%;
+    max-width: 100vw;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,12 +27,19 @@
     @apply bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-800;
     min-height: 100vh;
     width: 100%;
+    max-width: 100vw;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     line-height: 1.7;
     letter-spacing: -0.01em;
     font-weight: 400;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -86,6 +98,80 @@
 
   .animate-slide {
     @apply animate-slide-in;
+  }
+}
+
+@layer utilities {
+  /* 모바일 반응형 유틸리티 */
+  .mobile-safe {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  .mobile-container {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mobile-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .mobile-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .mobile-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 640px) {
+    .mobile-flex {
+      flex-direction: column;
+    }
+  }
+  
+  /* 차트 및 그래프 모바일 최적화 */
+  .mobile-chart {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden;
+  }
+  
+  .mobile-chart svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* 세련된 타이포그래피 */
+  .elegant-heading {
+    font-family: 'Pretendard Variable', 'Inter', 'system-ui', 'sans-serif';
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  .elegant-text {
+    font-family: 'Pretendard Variable', 'Inter', 'system-ui', 'sans-serif';
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.6;
+  }
+  
+  .elegant-accent {
+    font-family: 'Pretendard Variable', 'Inter', 'system-ui', 'sans-serif';
+    font-weight: 300;
+    letter-spacing: -0.01em;
   }
 }
 

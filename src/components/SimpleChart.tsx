@@ -35,16 +35,16 @@ const SimpleChart: React.FC<SimpleChartProps> = ({
   ];
 
   const renderBarChart = () => (
-    <div className="flex items-end justify-between gap-2 h-full px-4">
+    <div className="flex items-end justify-between gap-1 sm:gap-2 h-full px-2 sm:px-4 mobile-chart">
       {data.map((item, index) => {
         const heightPercentage = (item.value / maxValue) * 100;
         
         return (
-          <div key={index} className="flex flex-col items-center flex-1 h-full">
+          <div key={index} className="flex flex-col items-center flex-1 h-full min-w-0">
             <div className="flex-1 flex items-end justify-center w-full">
               <motion.div
-                className={`${item.color || colors[index % colors.length]} rounded-t-lg min-w-8 max-w-16 relative group cursor-pointer`}
-                style={{ width: '100%' }}
+                className={`${item.color || colors[index % colors.length]} rounded-t-lg w-full relative group cursor-pointer`}
+                style={{ minWidth: '20px', maxWidth: '60px' }}
                 initial={{ height: 0 }}
                 animate={{ height: `${heightPercentage}%` }}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: 'easeOut' }}
@@ -57,7 +57,7 @@ const SimpleChart: React.FC<SimpleChartProps> = ({
                 </div>
               </motion.div>
             </div>
-            <div className="text-xs text-center text-secondary-600 dark:text-secondary-400 mt-2 font-medium">
+            <div className="text-xs sm:text-sm text-center text-secondary-600 dark:text-secondary-400 mt-1 sm:mt-2 font-medium mobile-text truncate">
               {item.label}
             </div>
           </div>
@@ -242,16 +242,16 @@ const SimpleChart: React.FC<SimpleChartProps> = ({
   };
 
   return (
-    <div className={`bg-white dark:bg-secondary-800 rounded-2xl border border-secondary-200 dark:border-secondary-700 shadow-lg ${className}`}>
+    <div className={`bg-white dark:bg-secondary-800 rounded-2xl border border-secondary-200 dark:border-secondary-700 shadow-lg mobile-safe ${className}`}>
       {title && (
-        <div className="p-4 border-b border-secondary-200 dark:border-secondary-700">
-          <h3 className="text-lg font-semibold text-secondary-800 dark:text-secondary-200">
+        <div className="p-3 sm:p-4 border-b border-secondary-200 dark:border-secondary-700">
+          <h3 className="text-base sm:text-lg font-semibold text-secondary-800 dark:text-secondary-200 mobile-text">
             {title}
           </h3>
         </div>
       )}
       
-      <div style={{ height: `${height}px` }} className="relative">
+      <div style={{ height: `${Math.max(150, height)}px` }} className="relative mobile-chart">
         {type === 'bar' && renderBarChart()}
         {type === 'line' && renderLineChart()}
         {type === 'doughnut' && renderDoughnutChart()}

@@ -4,7 +4,7 @@ import { cn } from "../utils/cn";
 
 const buttonVariants = cva(
   // 기본 스타일
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold text-render transition-all duration-300 ease-smooth focus-ring disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium text-render transition-all duration-300 ease-smooth focus-ring disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group elegant-text",
   {
     variants: {
       variant: {

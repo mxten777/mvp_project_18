@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
 
   return (
     <motion.section 
-      className="relative py-20 md:py-32 bg-mesh-primary dark:bg-mesh-dark flex flex-col items-center justify-center overflow-hidden shadow-2xl w-full mt-4"
+      className="relative py-20 md:py-32 bg-mesh-primary dark:bg-mesh-dark flex flex-col items-center justify-center overflow-hidden shadow-2xl w-full max-w-full mt-4 mobile-safe"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -71,11 +71,11 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/20 dark:from-transparent dark:via-secondary-900/10 dark:to-secondary-900/20" />
     </div>
 
-    <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-6 text-center">
+    <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 sm:px-6 text-center mobile-container">
       
       {/* 로고/아이콘 */}
       <motion.div 
-        className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 dark:from-primary-400 dark:to-primary-500 shadow-glow mb-8 border-4 border-white/50 dark:border-secondary-800/50"
+        className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 dark:from-primary-400 dark:to-primary-500 shadow-glow mb-6 sm:mb-8 border-4 border-white/50 dark:border-secondary-800/50"
         variants={itemVariants}
         whileHover={{ scale: 1.1, rotate: 5 }}
         whileTap={{ scale: 0.95 }}
@@ -91,11 +91,11 @@ const Hero: React.FC = () => {
 
       {/* 메인 헤딩 */}
       <motion.h1 
-        className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-secondary-800 dark:text-secondary-100 mb-8 drop-shadow-soft tracking-tight leading-[1.2] max-w-4xl"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-secondary-800 dark:text-secondary-100 mb-6 sm:mb-8 drop-shadow-soft tracking-tight leading-[1.2] max-w-4xl elegant-heading"
         variants={itemVariants}
       >
         <motion.span 
-          className="block mb-3"
+          className="block mb-2 sm:mb-3 text-base sm:text-lg md:text-xl font-normal"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <span className="gradient-text font-extrabold text-3xl md:text-4xl lg:text-5xl">
+          <span className="gradient-text font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
             마음의 짐을 덜어드리겠습니다
           </span>
         </motion.span>
@@ -119,12 +119,12 @@ const Hero: React.FC = () => {
         className="mb-6"
         variants={itemVariants}
       >
-        <p className="text-xl md:text-2xl text-secondary-600 dark:text-secondary-300 mb-4 font-semibold max-w-3xl leading-relaxed">
-          <span className="inline-block bg-gradient-to-r from-primary-600 to-primary-500 dark:from-primary-400 dark:to-primary-300 bg-clip-text text-transparent font-bold text-2xl md:text-3xl">
+        <p className="text-lg sm:text-xl md:text-2xl text-secondary-600 dark:text-secondary-300 mb-3 sm:mb-4 font-medium max-w-3xl leading-relaxed elegant-text">
+          <span className="inline-block bg-gradient-to-r from-primary-600 to-primary-500 dark:from-primary-400 dark:to-primary-300 bg-clip-text text-transparent font-semibold text-xl sm:text-2xl md:text-3xl">
             국가 지원금 85% 이상
           </span>
         </p>
-        <p className="text-lg md:text-xl text-secondary-700 dark:text-secondary-300 font-medium max-w-2xl leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-secondary-700 dark:text-secondary-300 font-normal max-w-2xl leading-relaxed elegant-text">
           전화 한 통으로 통합 방문요양/간호/목욕 서비스
         </p>
       </motion.div>
