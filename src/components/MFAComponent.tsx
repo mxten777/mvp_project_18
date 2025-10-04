@@ -10,7 +10,7 @@ import {
   DevicePhoneMobileIcon,
   EnvelopeIcon,
   QrCodeIcon,
-  FingerprintIcon,
+  FingerPrintIcon,
   CheckCircleIcon,
   XCircleIcon,
   ClockIcon,
@@ -93,7 +93,7 @@ const MFAComponent: React.FC<MFAProps> = ({
       type: 'biometric',
       name: '생체 인증',
       description: '지문 또는 얼굴 인식을 사용합니다',
-      icon: FingerprintIcon,
+      icon: FingerPrintIcon,
       enabled: false,
       verified: false,
       setupRequired: true
@@ -438,7 +438,7 @@ const MFAComponent: React.FC<MFAProps> = ({
             {isLoading ? (
               <ArrowPathIcon className="h-12 w-12 text-blue-600 dark:text-blue-400 animate-spin" />
             ) : (
-              <FingerprintIcon className="h-12 w-12 text-blue-600 dark:text-blue-400" />
+              <FingerPrintIcon className="h-12 w-12 text-blue-600 dark:text-blue-400" />
             )}
           </button>
           <p className="text-sm text-gray-600 dark:text-gray-400">

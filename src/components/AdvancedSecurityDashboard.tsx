@@ -22,7 +22,7 @@ import {
   ArrowTrendingUpIcon,
   ArrowTrendingDownIcon
 } from '@heroicons/react/24/outline';
-import { securityEngine, SecurityEvent } from '../utils/securityEngine';
+import { securityEngine, type SecurityEvent } from '../utils/securityEngine';
 
 interface SecurityDashboardProps {
   userId?: string;

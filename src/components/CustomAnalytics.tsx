@@ -17,7 +17,7 @@ import {
   XMarkIcon
 } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
-import { analyticsEngine, UserBehaviorData } from '../utils/analytics';
+import { analyticsEngine, type UserBehaviorData } from '../utils/analytics';
 
 interface CustomAnalyticsProps {
   className?: string;

@@ -20,7 +20,7 @@ import AIDashboard from "./components/AIDashboard";
 import SmartChatbot from "./components/SmartChatbot";
 import CollaborationDashboard from "./components/CollaborationDashboard";
 import { SEOManager } from "./utils/seo";
-import { useAnalytics } from "./hooks/useAnalytics";
+// import { useAnalytics } from "./hooks/useAnalytics";
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <main 
