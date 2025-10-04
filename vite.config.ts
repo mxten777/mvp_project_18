@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   build: {
-    target: 'esnext',
+    target: ['es2020', 'chrome80', 'firefox80', 'safari14', 'edge80'],
     minify: 'terser',
     sourcemap: false,
     rollupOptions: {
@@ -16,9 +16,13 @@ export default defineConfig({
           utils: ['react-i18next']
         }
       }
-    }
+    },
+    cssTarget: 'chrome80'
   },
   server: {
     port: 5180
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom']
   }
 })

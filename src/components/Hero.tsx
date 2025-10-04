@@ -2,73 +2,45 @@ import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Button from "./Button";
-import FloatingParticles from "./FloatingParticles";
 
 const Hero: React.FC = () => {
+  // 모바일 성능을 위해 애니메이션 간소화
+  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        duration: isReducedMotion ? 0.1 : 0.6,
+        staggerChildren: isReducedMotion ? 0 : 0.1
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: isReducedMotion ? 0 : 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring" as const,
-        duration: 0.8,
-        bounce: 0.3
+        duration: isReducedMotion ? 0.1 : 0.4,
+        ease: "easeOut"
       }
-    }
-  };
-
-  const floatAnimation = {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut" as const
     }
   };
 
   return (
     <motion.section 
-      className="relative py-20 md:py-32 bg-mesh-primary dark:bg-mesh-dark flex flex-col items-center justify-center overflow-hidden shadow-2xl w-full max-w-full mt-4 mobile-safe"
+      className="relative py-16 sm:py-20 md:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex flex-col items-center justify-center overflow-hidden shadow-lg w-full max-w-full mt-4 mobile-safe"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
     
-    {/* 동적 배경 그래픽 */}
+    {/* 단순화된 배경 */}
     <div className="absolute inset-0 pointer-events-none select-none">
-      <FloatingParticles count={25} />
-      <motion.div 
-        className="absolute top-10 left-10 w-20 h-20 bg-primary-200/30 dark:bg-primary-800/30 rounded-full"
-        animate={floatAnimation}
-      />
-      <motion.div 
-        className="absolute top-32 right-20 w-16 h-16 bg-warm-200/40 dark:bg-warm-800/40 rounded-full"
-        animate={floatAnimation}
-        transition={{ delay: 1, duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-20 left-20 w-24 h-24 bg-secondary-200/20 dark:bg-secondary-700/30 rounded-full"
-        animate={floatAnimation}
-        transition={{ delay: 2, duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-32 right-10 w-12 h-12 bg-primary-300/40 dark:bg-primary-700/40 rounded-full"
-        animate={floatAnimation}
-        transition={{ delay: 0.5, duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/20 dark:from-transparent dark:via-secondary-900/10 dark:to-secondary-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-white/10" />
     </div>
 
     <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 sm:px-6 text-center mobile-container">
