@@ -1,38 +1,102 @@
-
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-	font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', 'Arial', 'sans-serif';
-	@apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
-	min-height: 100%;
-	width: 100%;
-	overflow-x: hidden;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+@layer base {
+  html {
+    font-family: 'Pretendard Variable', 'Pretendard', 'Inter', 'system-ui', 'sans-serif';
+    @apply bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-800 text-secondary-900 dark:text-secondary-50;
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-800;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Pretendard Variable', 'Inter', 'system-ui', 'sans-serif';
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    @apply text-secondary-900 dark:text-secondary-50;
+  }
+
+  p, li, span {
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    @apply text-secondary-700 dark:text-secondary-300;
+  }
+
+  ::selection {
+    @apply bg-primary-200 text-primary-900 dark:bg-primary-800 dark:text-primary-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    @apply bg-secondary-100 dark:bg-secondary-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 dark:bg-primary-600 rounded-full;
+    transition: background-color 0.2s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400 dark:bg-primary-500;
+  }
 }
 
-body {
-	@apply bg-gray-100 dark:bg-gray-900;
-	min-height: 100vh;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
+@layer components {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-900;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-smooth hover:scale-105 hover:shadow-medium;
+  }
+
+  .glass {
+    @apply bg-white/80 dark:bg-secondary-900/80 backdrop-blur-xl border border-white/20 dark:border-secondary-700/50;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-primary-400 dark:from-primary-400 dark:to-primary-200 bg-clip-text text-transparent;
+  }
+
+  .animate-in {
+    @apply animate-fade-in;
+  }
+
+  .animate-slide {
+    @apply animate-slide-in;
+  }
 }
 
-::selection {
-	background: #e5f1ff;
-	color: #222;
-}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 
-::-webkit-scrollbar {
-	width: 10px;
-	background: #f3f6fd;
-}
-::-webkit-scrollbar-thumb {
-	background: #dbeafe;
-	border-radius: 6px;
+  .text-render {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

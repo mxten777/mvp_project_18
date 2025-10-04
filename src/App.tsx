@@ -2,45 +2,116 @@ import NotFound from "./components/NotFound";
 import MyPage from "./components/MyPage";
 import DownloadList from "./components/DownloadList";
 import NoticeList from "./components/NoticeList";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { AuthProvider } from "./contexts/AuthContext";
+import ScrollProgress from "./components/ScrollProgress";
+import BackToTop from "./components/BackToTop";
+import PrivacyCenter from "./components/PrivacyCenter";
+import SecurityDashboard from "./components/SecurityDashboard";
+import SEOHead from "./components/SEOHead";
+import PerformanceMonitor from "./components/PerformanceMonitor";
+import AnalyticsDashboard from "./components/AnalyticsDashboard";
+import CustomAnalytics from "./components/CustomAnalytics";
+import SimpleAnalytics from "./components/SimpleAnalytics";
+import AIDashboard from "./components/AIDashboard";
+import SmartChatbot from "./components/SmartChatbot";
+import CollaborationDashboard from "./components/CollaborationDashboard";
+import { SEOManager } from "./utils/seo";
+import { useAnalytics } from "./hooks/useAnalytics";
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <main className="w-full py-8 min-h-[80vh] bg-transparent dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">{children}</main>
+  <main 
+    id="main-content"
+    className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-[80vh] bg-transparent dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+    role="main"
+    aria-label="주요 콘텐츠"
+    tabIndex={-1}
+  >
+    {children}
+  </main>
 );
 
 
 
-import Hero from "./components/Hero";
 import Features from "./components/Features";
 import Steps from "./components/Steps";
 import TestimonialList from "./components/TestimonialList";
 import FAQList from "./components/FAQList";
+import QuizSection from "./components/QuizSection";
+import RealTimeStats from "./components/RealTimeStats";
+import AIChatbotSection from "./components/AIChatbotSection";
+import ChatInterface from "./components/ChatInterface";
+import PWAInstallPrompt from "./components/PWAInstallPrompt";
+import PWAStatusIndicator from "./components/PWAStatusIndicator";
+import SecuritySection from "./components/SecuritySection";
+import AccessibilityToolbar from "./components/AccessibilityToolbar";
+import AccessibleHero from "./components/AccessibleHero";
+import AIFeaturesSection from "./components/AIFeaturesSection";
+import CollaborationSection from "./components/CollaborationSection";
+import SecurityFeaturesSection from "./components/SecurityFeaturesSection";
+import SecurityCenter from "./components/SecurityCenter";
+import GlobalizationDashboard from "./components/GlobalizationDashboard";
 
 const Home = () => (
   <>
-    <Hero />
+    <AccessibleHero />
+    <QuizSection />
+    <RealTimeStats />
+    <AIChatbotSection />
+    <AIFeaturesSection />
+    <CollaborationSection />
+    <SecurityFeaturesSection />
     <Features />
+    <SecuritySection />
     <Steps />
     <TestimonialList />
     <FAQList />
+    <ChatInterface />
+    <PWAInstallPrompt />
+    <PWAStatusIndicator />
   </>
 );
 
 const About = () => (
-  <section className="py-10 w-full">
-    <h3 className="text-2xl font-bold text-center text-green-600 dark:text-gray-100 mb-7 tracking-tight select-none" style={{fontFamily:'Pretendard,Noto Sans KR,sans-serif'}}>센터소개</h3>
-  <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 px-4 space-y-5 text-base leading-relaxed text-gray-800 dark:text-gray-200 max-w-2xl mx-auto">
-      <p>바이칼 재가복지센터는 어르신과 가족의 행복을 최우선으로 생각합니다. 방문요양, 방문간호, 방문목욕 등 다양한 재가복지 서비스를 통해 어르신의 건강과 일상, 가족의 안심을 함께 지켜드립니다.</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>전문 요양보호사, 간호사, 사회복지사 등 우수 인력 보유</li>
-        <li>맞춤형 서비스 설계 및 1:1 상담</li>
-        <li>국가 지원금 85% 이상, 합리적 비용</li>
-        <li>신속한 상담 및 신청, 투명한 운영</li>
-      </ul>
-      <p>지역사회와 함께하는 신뢰받는 복지센터로, 언제든 문의·상담 환영합니다.</p>
+  <section className="py-16 w-full">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 className="text-3xl md:text-4xl font-bold text-left text-secondary-800 dark:text-secondary-100 mb-12 tracking-tight font-heading">
+        센터소개
+      </h3>
+      <div className="bg-white/95 dark:bg-secondary-800/95 backdrop-blur-sm rounded-2xl shadow-xl border border-secondary-200 dark:border-secondary-700 p-8 md:p-12 space-y-8">
+        <p className="text-lg md:text-xl leading-relaxed text-secondary-700 dark:text-secondary-300 font-medium">
+          바이칼 재가복지센터는 어르신과 가족의 행복을 최우선으로 생각합니다. 방문요양, 방문간호, 방문목욕 등 다양한 재가복지 서비스를 통해 어르신의 건강과 일상, 가족의 안심을 함께 지켜드립니다.
+        </p>
+        
+        <div className="bg-primary-50/80 dark:bg-primary-900/30 rounded-xl p-6 border-l-4 border-primary-500">
+          <h4 className="text-lg font-semibold text-secondary-800 dark:text-secondary-200 mb-4">우리의 강점</h4>
+          <ul className="space-y-3 text-secondary-700 dark:text-secondary-300">
+            <li className="flex items-start gap-3">
+              <span className="text-primary-500 mt-1">✓</span>
+              <span>전문 요양보호사, 간호사, 사회복지사 등 우수 인력 보유</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-primary-500 mt-1">✓</span>
+              <span>맞춤형 서비스 설계 및 1:1 상담</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-primary-500 mt-1">✓</span>
+              <span>국가 지원금 85% 이상, 합리적 비용</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-primary-500 mt-1">✓</span>
+              <span>신속한 상담 및 신청, 투명한 운영</span>
+            </li>
+          </ul>
+        </div>
+        
+        <p className="text-lg leading-relaxed text-secondary-700 dark:text-secondary-300 border-l-4 border-primary-300 pl-6 bg-primary-50/30 dark:bg-primary-900/20 py-4 rounded-r-lg">
+          지역사회와 함께하는 신뢰받는 복지센터로, 언제든 문의·상담 환영합니다.
+        </p>
+      </div>
     </div>
   </section>
 );
@@ -100,7 +171,7 @@ const Apply = () => (
     <ContactForm />
   </div>
 );
-import LoginPage from "./components/Login";
+import SecureLogin from "./components/SecureLogin";
 import DashboardPage from "./components/Dashboard";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminNotice from "./components/AdminNotice";
@@ -109,42 +180,111 @@ import AdminUser from "./components/AdminUser";
 import SignUp from "./components/SignUp";
 import AdminApplication from "./components/AdminApplication";
 const Login = () => (
-  <LoginPage />
+  <SecureLogin />
 );
 const Dashboard = () => (
   <DashboardPage />
 );
 
 function App() {
+  const [showPerformanceMonitor, setShowPerformanceMonitor] = useState(false);
+  const seoManager = SEOManager.getInstance();
+  
+  // 분석 시스템은 개별 페이지에서 필요에 따라 초기화
+
+  useEffect(() => {
+    // 기본 SEO 설정
+    seoManager.setTitle('신뢰할 수 있는 돌봄 서비스');
+    seoManager.setMeta('description', '전문적이고 안전한 요양보호 서비스로 어르신들의 건강하고 행복한 일상을 지원합니다.');
+    seoManager.setMeta('keywords', '요양보호, 돌봄서비스, 요양보호사, 재가요양, 방문요양, 장기요양보험');
+    
+    // Open Graph 설정
+    seoManager.setOpenGraph({
+      title: '신뢰할 수 있는 돌봄 서비스 | 요양보호 전문센터',
+      description: '전문적이고 안전한 요양보호 서비스로 어르신들의 건강하고 행복한 일상을 지원합니다.',
+      type: 'website',
+      url: window.location.href,
+      image: '/images/og-image.jpg',
+      siteName: '요양보호 전문센터'
+    });
+
+    // 키보드 단축키 설정
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.altKey && e.key === 'p') {
+        e.preventDefault();
+        setShowPerformanceMonitor(prev => !prev);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+    return () => document.removeEventListener('keydown', handleKeyPress);
+  }, [seoManager]);
+
   return (
-    <Router>
-      <Header />
-      <Container>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/apply" element={<Apply />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/admin/application" element={<AdminApplication />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/notice" element={<AdminNotice />} />
-          <Route path="/admin/download" element={<AdminDownload />} />
-          <Route path="/admin/user" element={<AdminUser />} />
-          <Route path="/notices" element={<NoticeList />} />
-          <Route path="/downloads" element={<DownloadList />} />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Container>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+          {/* SEO 헤드 */}
+          <SEOHead />
+          
+          {/* 성능 모니터 */}
+          <PerformanceMonitor 
+            isVisible={showPerformanceMonitor}
+            onClose={() => setShowPerformanceMonitor(false)}
+          />
+
+          {/* 성능 모니터 토글 버튼 */}
+          <button
+            onClick={() => setShowPerformanceMonitor(true)}
+            className="fixed bottom-4 left-4 p-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
+            title="성능 모니터 열기 (Alt+P)"
+            aria-label="성능 모니터"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </button>
+
+          <ScrollProgress />
+          <Header />
+          <Container>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/reviews" element={<Reviews />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/apply" element={<Apply />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/admin/application" element={<AdminApplication />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/notice" element={<AdminNotice />} />
+              <Route path="/admin/download" element={<AdminDownload />} />
+              <Route path="/admin/user" element={<AdminUser />} />
+              <Route path="/notices" element={<NoticeList />} />
+              <Route path="/downloads" element={<DownloadList />} />
+              <Route path="/mypage" element={<MyPage />} />
+              <Route path="/privacy" element={<PrivacyCenter />} />
+              <Route path="/security" element={<SecurityDashboard />} />
+              <Route path="/analytics" element={<AnalyticsDashboard />} />
+              <Route path="/analytics/custom" element={<CustomAnalytics />} />
+              <Route path="/analytics/simple" element={<SimpleAnalytics />} />
+              <Route path="/ai" element={<AIDashboard />} />
+              <Route path="/ai/chatbot" element={<SmartChatbot className="h-screen" />} />
+              <Route path="/collaboration" element={<CollaborationDashboard />} />
+              <Route path="/security-center" element={<SecurityCenter />} />
+              <Route path="/globalization" element={<GlobalizationDashboard />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Container>
+          <Footer />
+          <BackToTop />
+          <AccessibilityToolbar />
+        </Router>
+      </AuthProvider>
   );
 }
 

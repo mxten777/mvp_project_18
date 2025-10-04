@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "features": "Características",
+    "dashboard": "Panel",
+    "collaboration": "Colaboración",
+    "analytics": "Análisis",
+    "security": "Seguridad",
+    "ai": "IA",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "logout": "Cerrar sesión",
+    "language": "Idioma"
+  },
+  "home": {
+    "title": "Bienvenido a la Plataforma Web de Nueva Generación",
+    "subtitle": "Transforme su negocio con inteligencia impulsada por IA y herramientas de colaboración avanzadas",
+    "getStarted": "Comenzar",
+    "learnMore": "Saber más",
+    "heroDescription": "Experimente una solución empresarial completa construida con tecnología de vanguardia y diseño intuitivo"
+  },
+  "features": {
+    "title": "Características Poderosas",
+    "aiTitle": "Perspectivas Impulsadas por IA",
+    "aiDescription": "Optimice sus procesos empresariales con aprendizaje automático y tome decisiones inteligentes",
+    "collaborationTitle": "Colaboración en Tiempo Real",
+    "collaborationDescription": "Trabaje junto con su equipo en tiempo real y experimente comunicación perfecta",
+    "analyticsTitle": "Análisis Avanzado",
+    "analyticsDescription": "Transforme datos en perspectivas con análisis integral y paneles personalizados",
+    "securityTitle": "Seguridad Empresarial",
+    "securityDescription": "Proteja sus datos y negocio con medidas de seguridad de nivel superior"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "welcome": "Bienvenido",
+    "totalUsers": "Usuarios Totales",
+    "revenue": "Ingresos",
+    "growth": "Crecimiento",
+    "engagement": "Compromiso",
+    "userActivity": "Actividad del Usuario",
+    "revenueChart": "Gráfico de Ingresos",
+    "quickActions": "Acciones Rápidas",
+    "createProject": "Crear Proyecto",
+    "inviteTeam": "Invitar Equipo",
+    "viewReports": "Ver Informes",
+    "configure": "Configurar"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Agregar",
+    "remove": "Quitar",
+    "confirm": "Confirmar",
+    "close": "Cerrar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "success": "Éxito",
+    "error": "Error"
+  }
+}
