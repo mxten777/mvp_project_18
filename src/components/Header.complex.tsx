@@ -10,8 +10,16 @@ const navLinks = [
   { to: "/", labelKey: "navigation.home", icon: "🏠", primary: true },
   { to: "/services", labelKey: "navigation.services", icon: "💊", primary: true },
   { to: "/pricing", labelKey: "navigation.pricing", icon: "💰", primary: true },
+  { to: "/ai-dashboard", labelKey: "navigation.ai", icon: "🤖", primary: true },
+  { to: "/security", labelKey: "navigation.security", icon: "🔒", primary: true },
   { to: "/faq", labelKey: "navigation.faq", icon: "❓", primary: true },
   { to: "/contact", labelKey: "navigation.contact", icon: "📞", primary: true },
+  { to: "/analytics", labelKey: "navigation.analytics", icon: "📊", primary: false },
+  { to: "/collaboration", labelKey: "navigation.collaboration", icon: "👥", primary: false },
+  { to: "/notices", labelKey: "navigation.notices", icon: "📢", primary: false },
+  { to: "/downloads", labelKey: "navigation.downloads", icon: "📥", primary: false },
+  { to: "/mypage", labelKey: "navigation.mypage", icon: "👤", primary: false },
+  { to: "/login", labelKey: "navigation.login", icon: "🔐", primary: false },
 ];
 
 const Header: React.FC = () => {
