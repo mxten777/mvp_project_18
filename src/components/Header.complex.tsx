@@ -5,27 +5,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import LanguageSelector from "./LanguageSelector.complex";
 
-// 메뉴 구조를 명확하게 분리
-const mainMenus = [
-  { to: "/", label: "홈", icon: "🏠" },
-  { to: "/services", label: "서비스", icon: "💊" },
+// 메뉴 구조를 다국어 키로 정의
+const getMainMenus = (t: (key: string) => string) => [
+  { to: "/", label: t('navigation.home'), icon: "🏠" },
+  { to: "/services", label: t('navigation.services'), icon: "💊" },
   { to: "/pricing", label: "비용안내", icon: "💰" },
-  { to: "/contact", label: "문의하기", icon: "📞" }
+  { to: "/contact", label: t('navigation.contact'), icon: "📞" }
 ];
 
-const advancedMenus = [
+const getAdvancedMenus = (t: (key: string) => string) => [
   { 
     category: "스마트 서비스",
     items: [
-      { to: "/ai-dashboard", label: "AI 돌봄", icon: "🤖" },
-      { to: "/analytics", label: "실시간 분석", icon: "📊" },
-      { to: "/collaboration", label: "협업센터", icon: "👥" }
+      { to: "/ai-dashboard", label: t('navigation.ai'), icon: "🤖" },
+      { to: "/analytics", label: t('navigation.analytics'), icon: "📊" },
+      { to: "/collaboration", label: t('navigation.collaboration'), icon: "👥" }
     ]
   },
   {
     category: "정보센터", 
     items: [
-      { to: "/faq", label: "FAQ", icon: "❓" },
+      { to: "/faq", label: t('navigation.faq'), icon: "❓" },
       { to: "/notices", label: "공지사항", icon: "📢" },
       { to: "/downloads", label: "자료실", icon: "📥" }
     ]
@@ -34,7 +34,7 @@ const advancedMenus = [
     category: "계정",
     items: [
       { to: "/mypage", label: "마이페이지", icon: "👤" },
-      { to: "/security", label: "보안센터", icon: "🔒" },
+      { to: "/security-center", label: t('navigation.securityCenter'), icon: "🔒" },
       { to: "/login", label: "로그인", icon: "🔐" }
     ]
   }
@@ -46,6 +46,10 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const location = useLocation();
+
+  // 다국어 메뉴 생성
+  const mainMenus = getMainMenus(t);
+  const advancedMenus = getAdvancedMenus(t);
 
   // 스크롤 감지
   useEffect(() => {
@@ -126,7 +130,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200"
               >
                 <span className="text-sm">⚙️</span>
-                <span>더보기</span>
+                <span>{t('navigation.more')}</span>
                 <motion.svg 
                   animate={{ rotate: dropdownOpen === 'more' ? 180 : 0 }}
                   className="w-4 h-4"

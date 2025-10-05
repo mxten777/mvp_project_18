@@ -37,12 +37,44 @@
     "heroDescription": "Experience a complete business solution built with cutting-edge technology and intuitive design"
   },
   "hero": {
-    "title": "Welcome to the Next-Generation Web Platform",
-    "subtitle": "Transform your business with AI-powered intelligence and advanced collaboration tools",
-    "description": "Experience a complete business solution built with cutting-edge technology and intuitive design. Meet the future of work with real-time collaboration, AI analytics, and enterprise-grade security.",
-    "cta": "Get Started",
-    "videoTitle": "Play Introduction Video",
-    "watchDemo": "Watch Demo"
+    "title": "We will lighten your burden of mind",
+    "subtitle": "For those who care for their parents",
+    "support": "Over 85% government subsidies",
+    "description": "Integrated home care/nursing/bathing services with just one phone call",
+    "cta": "Apply for Free Consultation",
+    "videoTitle": "Play Introduction Video", 
+    "watchDemo": "Explore Services"
+  },
+  "services": {
+    "title": "Care Service Guide",
+    "subtitle": "Professional and systematic care services to reduce your family's burden",
+    "homecare": {
+      "title": "Home Care",
+      "description": "Professional caregivers visit your home to support daily living",
+      "feature1": "Physical activity support",
+      "feature2": "Household support",
+      "feature3": "Emotional care", 
+      "feature4": "Safety management",
+      "price": "Monthly ₩500,000 → ₩75,000 (85% subsidized)"
+    },
+    "nursing": {
+      "title": "Home Nursing", 
+      "description": "Professional nurses visit to provide medical care",
+      "feature1": "Health status check",
+      "feature2": "Medication management",
+      "feature3": "Wound treatment",
+      "feature4": "Medical coordination",
+      "price": "Monthly ₩800,000 → ₩120,000 (85% subsidized)"
+    },
+    "bathing": {
+      "title": "Home Bathing",
+      "description": "Professional bathing service for hygiene and health management",
+      "feature1": "Professional bathing service",
+      "feature2": "Hygiene management", 
+      "feature3": "Safe bathing",
+      "feature4": "Skin care",
+      "price": "Per session ₩150,000 → ₩22,000 (85% subsidized)"
+    }
   },
   "accessibility": {
     "skip_to_content": "Skip to content",

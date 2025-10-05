@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // PC용 전체 기능 App
-import AppPC from './AppPC.simple';
+import AppPC from './AppPC';
 // 모바일용 간소화 App  
 import AppMobile from './AppMobile';
 

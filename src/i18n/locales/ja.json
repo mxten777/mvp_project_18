@@ -36,6 +36,46 @@
     "learnMore": "詳細を見る",
     "heroDescription": "最先端技術と直感的なデザインで構築された完全なビジネスソリューションを体験"
   },
+  "hero": {
+    "title": "心の負担を軽減いたします",
+    "subtitle": "ご両親の介護をされている方々へ",
+    "support": "国の支援金85%以上",
+    "description": "電話一本で訪問介護・看護・入浴サービスを統合",
+    "cta": "無料相談申し込み",
+    "videoTitle": "紹介動画を再生",
+    "watchDemo": "サービスを見る"
+  },
+  "services": {
+    "title": "介護サービスのご案内",
+    "subtitle": "専門的で体系的な介護サービスでご家族の負担を軽減します",
+    "homecare": {
+      "title": "訪問介護",
+      "description": "専門の介護福祉士がご自宅を訪問し、日常生活をサポートします",
+      "feature1": "身体活動支援",
+      "feature2": "家事支援",
+      "feature3": "情緒的ケア",
+      "feature4": "安全管理",
+      "price": "月50万円 → 7.5万円（85%支援）"
+    },
+    "nursing": {
+      "title": "訪問看護",
+      "description": "専門看護師がご自宅を訪問し、医療的ケアを提供します",
+      "feature1": "健康状態チェック",
+      "feature2": "服薬管理",
+      "feature3": "創傷処置",
+      "feature4": "医療連携",
+      "price": "月80万円 → 12万円（85%支援）"
+    },
+    "bathing": {
+      "title": "訪問入浴",
+      "description": "専門入浴サービスで衛生と健康を同時に管理します",
+      "feature1": "専門入浴サービス",
+      "feature2": "衛生管理",
+      "feature3": "安全な入浴",
+      "feature4": "皮膚ケア",
+      "price": "1回15万円 → 2.2万円（85%支援）"
+    }
+  },
   "features": {
     "title": "強力な機能",
     "aiTitle": "AI駆動のインサイト",

@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 import Button from "./Button";
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
       {/* 배경 애니메이션 */}
@@ -70,7 +73,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              부모님 돌보시는 분들에게
+              {t('hero.subtitle')}
             </motion.span>
             <motion.span 
               className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-500 bg-clip-text text-transparent"
@@ -79,7 +82,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
               style={{ backgroundSize: "200% 200%" }}
             >
-              마음의 짐을 덜어드리겠습니다
+              {t('hero.title')}
             </motion.span>
           </motion.h1>
 
@@ -103,11 +106,11 @@ const Hero: React.FC = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 style={{ backgroundSize: "200% 200%" }}
               >
-                국가 지원금 85% 이상
+                {t('hero.support')}
               </motion.span>
             </motion.p>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-normal leading-relaxed">
-              전화 한 통으로 통합 방문요양/간호/목욕 서비스
+              {t('hero.description')}
             </p>
           </motion.div>
 

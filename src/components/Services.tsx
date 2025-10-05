@@ -1,31 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const services = [
-  {
-    icon: "🏥",
-    title: "방문 요양",
-    description: "전문 요양보호사가 직접 방문하여 일상생활을 지원합니다",
-    features: ["신체활동 지원", "가사 지원", "정서적 돌봄", "안전 관리"],
-    price: "월 50만원 → 7.5만원 (85% 지원)"
-  },
-  {
-    icon: "💊",
-    title: "방문 간호",
-    description: "전문 간호사가 방문하여 의료적 케어를 제공합니다",
-    features: ["건강상태 체크", "투약 관리", "상처 처치", "의료진 연계"],
-    price: "월 80만원 → 12만원 (85% 지원)"
-  },
-  {
-    icon: "🛁",
-    title: "방문 목욕",
-    description: "전문 목욕 서비스로 위생과 건강을 동시에 관리합니다",
-    features: ["전문 목욕 서비스", "위생 관리", "안전한 목욕", "피부 관리"],
-    price: "회당 15만원 → 2.2만원 (85% 지원)"
-  }
-];
+import { useTranslation } from 'react-i18next';
 
 const Services: React.FC = () => {
+  const { t } = useTranslation();
+
+  const getServices = () => [
+    {
+      icon: "🏥",
+      title: t('services.homecare.title'),
+      description: t('services.homecare.description'),
+      features: [
+        t('services.homecare.feature1'),
+        t('services.homecare.feature2'), 
+        t('services.homecare.feature3'),
+        t('services.homecare.feature4')
+      ],
+      price: t('services.homecare.price')
+    },
+    {
+      icon: "💊",
+      title: t('services.nursing.title'),
+      description: t('services.nursing.description'),
+      features: [
+        t('services.nursing.feature1'),
+        t('services.nursing.feature2'),
+        t('services.nursing.feature3'),
+        t('services.nursing.feature4')
+      ],
+      price: t('services.nursing.price')
+    },
+    {
+      icon: "🛁",
+      title: t('services.bathing.title'),
+      description: t('services.bathing.description'),
+      features: [
+        t('services.bathing.feature1'),
+        t('services.bathing.feature2'),
+        t('services.bathing.feature3'),
+        t('services.bathing.feature4')
+      ],
+      price: t('services.bathing.price')
+    }
+  ];
+
   return (
     <section id="services" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -36,14 +54,14 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">돌봄 서비스 안내</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">{t('services.title')}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            전문적이고 체계적인 돌봄 서비스로 가족의 부담을 덜어드립니다
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {getServices().map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
