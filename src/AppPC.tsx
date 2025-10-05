@@ -71,7 +71,7 @@ import SEOHead from "./components/SEOHead";
 // 컨텍스트
 import { AuthProvider } from "./contexts/AuthContext";
 
-// 홈 페이지 컴포넌트 - 체계적으로 정리된 모든 기능
+// 홈 페이지 컴포넌트 - 논리적 순서로 정리된 구조
 const HomePage: React.FC = () => (
   <>
     <SEOHead 
@@ -79,21 +79,43 @@ const HomePage: React.FC = () => (
       description="국가 지원금 85% 적용으로 합리적인 비용의 전문 돌봄 서비스. AI 기반 맞춤 케어, 24시간 응급 대응, 실시간 건강 모니터링"
       keywords="방문요양, 방문간호, 방문목욕, 돌봄서비스, 국가지원금, AI케어"
     />
+    
+    {/* 1. 메인 히어로 섹션 */}
     <Hero />
+    
+    {/* 2. 실시간 통계 (신뢰도 향상) */}
     <RealTimeStats />
+    
+    {/* 3. 핵심 서비스 소개 */}
     <Features />
-    <AIFeaturesSection />
     <Services />
-    <AIChatbotSection />
     <Steps />
+    
+    {/* 4. AI 기술 및 혁신 */}
+    <AIFeaturesSection />
+    <AIChatbotSection />
+    
+    {/* 5. 보안 및 신뢰성 */}
     <SecuritySection />
+    
+    {/* 6. 고객 만족도 */}
     <TestimonialList />
+    
+    {/* 7. 협업 및 커뮤니티 */}
     <CollaborationSection />
-    <MapSection />
+    
+    {/* 8. 개인화 및 인터랙션 */}
     <QuizSection />
+    <MapSection />
+    
+    {/* 9. CTA (행동 유도) */}
     <CTA />
+    
+    {/* 10. FAQ 및 문의 */}
     <FAQList />
     <Contact />
+    
+    {/* 11. 글로벌 대시보드 */}
     <GlobalizationDashboard />
   </>
 );
@@ -295,25 +317,26 @@ const DownloadsPage: React.FC = () => (
   </div>
 );
 
-// PC용 전체 기능 앱 - 체계적으로 정리된 구조
+// PC용 엔터프라이즈 앱 - 완벽하게 구조화된 아키텍처
 const AppPC: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
         <div className="min-h-screen bg-gray-50">
-          {/* 시스템 모니터링 (최상단) */}
+          
+          {/* === 시스템 레이어 (백그라운드) === */}
           <PerformanceMonitor />
           <SystemMonitor />
           
-          {/* PWA 및 알림 시스템 */}
+          {/* === PWA & 알림 레이어 === */}
           <PWAInstallPrompt />
           <PWAStatusIndicator />
           <NotificationSystem />
           
-          {/* 접근성 도구 */}
+          {/* === 접근성 레이어 === */}
           <AccessibilityToolbar />
           
-          {/* 메인 네비게이션 */}
+          {/* === 네비게이션 레이어 === */}
           <ScrollProgress />
           <Header />
           
@@ -357,15 +380,17 @@ const AppPC: React.FC = () => {
             } />
           </Routes>
 
+          {/* === 메인 푸터 === */}
           <Footer />
           
-          {/* 플로팅 UI (하단) */}
+          {/* === 플로팅 UI 레이어 (사용자 도구) === */}
           <BackToTop />
           <SmartChatbot />
           <ChatInterface />
           
-          {/* 글로벌 대시보드 */}
+          {/* === 관리자 대시보드 (최하단) === */}
           <Dashboard />
+          
         </div>
       </Router>
     </AuthProvider>
