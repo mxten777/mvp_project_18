@@ -7,19 +7,24 @@ import Button from "./Button";
 import LanguageSelector from "./LanguageSelector.complex";
 
 const navLinks = [
+  // 메인 네비게이션 (상단 표시)
   { to: "/", labelKey: "navigation.home", icon: "🏠", primary: true },
   { to: "/services", labelKey: "navigation.services", icon: "💊", primary: true },
   { to: "/pricing", labelKey: "navigation.pricing", icon: "💰", primary: true },
-  { to: "/ai-dashboard", labelKey: "navigation.ai", icon: "🤖", primary: true },
-  { to: "/security", labelKey: "navigation.security", icon: "🔒", primary: true },
   { to: "/faq", labelKey: "navigation.faq", icon: "❓", primary: true },
-  { to: "/contact", labelKey: "navigation.contact", icon: "📞", primary: true },
-  { to: "/analytics", labelKey: "navigation.analytics", icon: "📊", primary: false },
-  { to: "/collaboration", labelKey: "navigation.collaboration", icon: "👥", primary: false },
-  { to: "/notices", labelKey: "navigation.notices", icon: "📢", primary: false },
-  { to: "/downloads", labelKey: "navigation.downloads", icon: "📥", primary: false },
-  { to: "/mypage", labelKey: "navigation.mypage", icon: "👤", primary: false },
-  { to: "/login", labelKey: "navigation.login", icon: "🔐", primary: false },
+  { to: "/contact", labelKey: "navigation.contact", icon: "�", primary: true },
+  
+  // 고급 기능 (드롭다운 메뉴)
+  { to: "/ai-dashboard", labelKey: "AI 돌봄", icon: "🤖", primary: false },
+  { to: "/security", labelKey: "보안 센터", icon: "�", primary: false },
+  { to: "/analytics", labelKey: "실시간 분석", icon: "📊", primary: false },
+  { to: "/collaboration", labelKey: "협업 센터", icon: "👥", primary: false },
+  
+  // 정보 및 사용자
+  { to: "/notices", labelKey: "공지사항", icon: "📢", primary: false },
+  { to: "/downloads", labelKey: "자료실", icon: "📥", primary: false },
+  { to: "/mypage", labelKey: "마이페이지", icon: "👤", primary: false },
+  { to: "/login", labelKey: "로그인", icon: "🔐", primary: false },
 ];
 
 const Header: React.FC = () => {
