@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Button from './Button';
+import Button from './common/Button';
 import QuizResult from './QuizResult';
 
 interface Question {
@@ -26,98 +26,98 @@ const PersonalizationQuiz: React.FC = () => {
   const questions: Question[] = [
     {
       id: 'careLevel',
-      question: '어르신의 현재 일상생활 수행 능력은 어떠신가요?',
-      subtitle: '가장 가까운 상태를 선택해 주세요',
+      question: '?�르?�의 ?�재 ?�상?�활 ?�행 ?�력?� ?�떠?��???',
+      subtitle: '가??가까운 ?�태�??�택??주세??,
       type: 'single',
       options: [
         { 
           value: 'light', 
-          label: '대부분 혼자서 가능', 
-          icon: '🚶',
-          description: '독립적인 생활이 가능하지만 가끔 도움이 필요해요'
+          label: '?�부�??�자??가??, 
+          icon: '?��',
+          description: '?�립?�인 ?�활??가?�하지�?가???��????�요?�요'
         },
         { 
           value: 'moderate', 
-          label: '부분적으로 도움 필요', 
-          icon: '🤝',
-          description: '일상생활의 일부분에서 도움이 필요해요'
+          label: '부분적?�로 ?��? ?�요', 
+          icon: '?��',
+          description: '?�상?�활???��?분에???��????�요?�요'
         },
         { 
           value: 'intensive', 
-          label: '전반적인 도움 필요', 
-          icon: '🏥',
-          description: '대부분의 일상생활에서 도움이 필요해요'
+          label: '?�반?�인 ?��? ?�요', 
+          icon: '?��',
+          description: '?�부분의 ?�상?�활?�서 ?��????�요?�요'
         }
       ]
     },
     {
       id: 'services',
-      question: '어떤 서비스가 가장 필요하신가요?',
-      subtitle: '필요한 서비스를 모두 선택해 주세요 (복수 선택 가능)',
+      question: '?�떤 ?�비?��? 가???�요?�신가??',
+      subtitle: '?�요???�비?��? 모두 ?�택??주세??(복수 ?�택 가??',
       type: 'multiple',
       options: [
         { 
           value: 'nursing', 
           label: '방문간호', 
-          icon: '👩‍⚕️',
-          description: '건강관리, 투약관리, 상처처치 등'
+          icon: '?��?�⚕�?,
+          description: '건강관�? ?�약관�? ?�처처치 ??
         },
         { 
           value: 'care', 
-          label: '방문요양', 
-          icon: '🏠',
-          description: '신체활동 지원, 가사지원, 일상생활 도움'
+          label: '방문?�양', 
+          icon: '?��',
+          description: '?�체?�동 지?? 가?��??? ?�상?�활 ?��?'
         },
         { 
           value: 'bathing', 
           label: '방문목욕', 
-          icon: '🛁',
-          description: '전문 목욕 서비스 및 개인위생 관리'
+          icon: '?��',
+          description: '?�문 목욕 ?�비??�?개인?�생 관�?
         },
         { 
           value: 'daycare', 
-          label: '주야간보호', 
-          icon: '🌅',
-          description: '낮시간 또는 야간 돌봄 서비스'
+          label: '주야간보??, 
+          icon: '?��',
+          description: '??���??�는 ?�간 ?�봄 ?�비??
         }
       ]
     },
     {
       id: 'urgency',
-      question: '서비스 시작 희망 시기는 언제인가요?',
-      subtitle: '상황에 맞는 시기를 선택해 주세요',
+      question: '?�비???�작 ?�망 ?�기???�제?��???',
+      subtitle: '?�황??맞는 ?�기�??�택??주세??,
       type: 'single',
       options: [
         { 
           value: 'immediate', 
-          label: '즉시 필요해요', 
-          icon: '🚨',
-          description: '응급상황이거나 당장 도움이 필요한 경우'
+          label: '즉시 ?�요?�요', 
+          icon: '?��',
+          description: '?�급?�황?�거???�장 ?��????�요??경우'
         },
         { 
           value: 'within_week', 
-          label: '1주일 이내', 
-          icon: '📅',
-          description: '가능한 빠른 시일 내에 시작하고 싶어요'
+          label: '1주일 ?�내', 
+          icon: '?��',
+          description: '가?�한 빠른 ?�일 ?�에 ?�작?�고 ?�어??
         },
         { 
           value: 'within_month', 
-          label: '1개월 이내', 
-          icon: '📆',
-          description: '충분한 준비 시간을 두고 시작하고 싶어요'
+          label: '1개월 ?�내', 
+          icon: '?��',
+          description: '충분??준�??�간???�고 ?�작?�고 ?�어??
         }
       ]
     },
     {
       id: 'location',
-      question: '서비스 제공 지역은 어디인가요?',
-      subtitle: '정확한 서비스 안내를 위해 필요해요',
+      question: '?�비???�공 지??? ?�디?��???',
+      subtitle: '?�확???�비???�내�??�해 ?�요?�요',
       type: 'single',
       options: [
-        { value: 'seoul', label: '서울특별시', icon: '🏙️' },
-        { value: 'gyeonggi', label: '경기도', icon: '🏘️' },
-        { value: 'incheon', label: '인천광역시', icon: '✈️' },
-        { value: 'other', label: '기타 지역', icon: '📍' }
+        { value: 'seoul', label: '?�울?�별??, icon: '?���? },
+        { value: 'gyeonggi', label: '경기??, icon: '?���? },
+        { value: 'incheon', label: '?�천광역??, icon: '?�️' },
+        { value: 'other', label: '기�? 지??, icon: '?��' }
       ]
     }
   ];
@@ -166,8 +166,8 @@ const PersonalizationQuiz: React.FC = () => {
   };
 
   const handleBookConsultation = () => {
-    // 상담 예약 로직 (실제로는 API 호출)
-    alert('상담 예약이 접수되었습니다! 24시간 내 연락드리겠습니다.');
+    // ?�담 ?�약 로직 (?�제로는 API ?�출)
+    alert('?�담 ?�약???�수?�었?�니?? 24?�간 ???�락?�리겠습?�다.');
   };
 
   if (showResult) {
@@ -187,11 +187,11 @@ const PersonalizationQuiz: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-8">
-      {/* 진행률 표시 */}
+      {/* 진행�??�시 */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
           <span className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
-            진행률: {currentQuestion + 1}/{questions.length}
+            진행�? {currentQuestion + 1}/{questions.length}
           </span>
           <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
             {Math.round(progress)}%
@@ -216,7 +216,7 @@ const PersonalizationQuiz: React.FC = () => {
           transition={{ duration: 0.3 }}
           className="bg-white dark:bg-secondary-800 rounded-3xl p-8 shadow-xl border border-secondary-200 dark:border-secondary-700"
         >
-          {/* 질문 헤더 */}
+          {/* 질문 ?�더 */}
           <div className="text-center mb-8">
             <motion.h2
               className="text-3xl font-bold text-secondary-800 dark:text-secondary-100 mb-3"
@@ -238,7 +238,7 @@ const PersonalizationQuiz: React.FC = () => {
             )}
           </div>
 
-          {/* 선택지들 */}
+          {/* ?�택지??*/}
           <div className="grid gap-4 mb-8">
             {currentQ.options.map((option, index) => {
               const isSelected = currentAnswers.includes(option.value);
@@ -299,7 +299,7 @@ const PersonalizationQuiz: React.FC = () => {
             })}
           </div>
 
-          {/* 복수 선택 안내 */}
+          {/* 복수 ?�택 ?�내 */}
           {currentQ.type === 'multiple' && (
             <motion.div
               className="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-xl p-4 mb-6"
@@ -312,13 +312,13 @@ const PersonalizationQuiz: React.FC = () => {
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
                 <span className="text-sm font-medium">
-                  여러 개 선택 가능합니다. 필요한 모든 서비스를 선택해 주세요.
+                  ?�러 �??�택 가?�합?�다. ?�요??모든 ?�비?��? ?�택??주세??
                 </span>
               </div>
             </motion.div>
           )}
 
-          {/* 네비게이션 버튼들 */}
+          {/* ?�비게이??버튼??*/}
           <div className="flex justify-between items-center">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
@@ -332,7 +332,7 @@ const PersonalizationQuiz: React.FC = () => {
                   </svg>
                 }
               >
-                이전
+                ?�전
               </Button>
             </motion.div>
 
@@ -369,7 +369,7 @@ const PersonalizationQuiz: React.FC = () => {
                   )
                 }
               >
-                {currentQuestion === questions.length - 1 ? '결과 보기' : '다음'}
+                {currentQuestion === questions.length - 1 ? '결과 보기' : '?�음'}
               </Button>
             </motion.div>
           </div>

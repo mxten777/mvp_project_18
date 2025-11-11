@@ -5,6 +5,21 @@ import './styles/accessibility.css'
 import './i18n'
 import App from './App.tsx'
 
+// 다크모드 초기화
+const initDarkMode = () => {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+};
+
+// 다크모드 초기화 실행
+initDarkMode();
+
 // 전역 에러 핸들링
 window.addEventListener('error', (event) => {
   console.error('Global error:', event.error);

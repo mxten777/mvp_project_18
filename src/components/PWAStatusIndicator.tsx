@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePWA, useNetworkStatus } from '../hooks/usePWA';
-import Button from './Button';
+import Button from './common/Button';
 
 const PWAStatusIndicator: React.FC = () => {
   const { 
@@ -22,7 +22,7 @@ const PWAStatusIndicator: React.FC = () => {
   }, [updateAvailable]);
 
   React.useEffect(() => {
-    // 스탠드얼론 모드에서 알림 권한이 없으면 프롬프트 표시
+    // ?�탠?�얼�?모드?�서 ?�림 권한???�으�??�롬?�트 ?�시
     if (isStandalone && notificationPermission === 'default') {
       setTimeout(() => setShowNotificationPrompt(true), 5000);
     }
@@ -40,9 +40,9 @@ const PWAStatusIndicator: React.FC = () => {
       setShowNotificationPrompt(false);
       
       if (permission === 'granted') {
-        // 알림 허용 시 환영 알림 표시
-        new Notification('바이칼 재가복지센터', {
-          body: '알림이 활성화되었습니다! 중요한 상담 정보를 놓치지 마세요.',
+        // ?�림 ?�용 ???�영 ?�림 ?�시
+        new Notification('바이�??��?복�??�터', {
+          body: '?�림???�성?�되?�습?�다! 중요???�담 ?�보�??�치지 마세??',
           icon: '/icons/icon-192x192.png'
         });
       }
@@ -52,18 +52,18 @@ const PWAStatusIndicator: React.FC = () => {
   };
 
   const getConnectionIcon = () => {
-    if (!isOnline) return '📶';
+    if (!isOnline) return '?��';
     
     switch (connectionType) {
       case 'slow-2g':
       case '2g':
-        return '📶';
+        return '?��';
       case '3g':
-        return '📶';
+        return '?��';
       case '4g':
-        return '📶';
+        return '?��';
       default:
-        return '📶';
+        return '?��';
     }
   };
 
@@ -85,7 +85,7 @@ const PWAStatusIndicator: React.FC = () => {
 
   return (
     <>
-      {/* 네트워크 상태 표시 */}
+      {/* ?�트?�크 ?�태 ?�시 */}
       <motion.div
         className="fixed top-4 left-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -98,19 +98,19 @@ const PWAStatusIndicator: React.FC = () => {
           </span>
           <span className="text-sm font-medium text-secondary-700 dark:text-secondary-300">
             {isOnline ? (
-              connectionType !== 'unknown' ? connectionType.toUpperCase() : '온라인'
+              connectionType !== 'unknown' ? connectionType.toUpperCase() : '?�라??
             ) : (
-              '오프라인'
+              '?�프?�인'
             )}
           </span>
           
           {isStandalone && (
-            <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" title="앱 모드" />
+            <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" title="??모드" />
           )}
         </div>
       </motion.div>
 
-      {/* 업데이트 알림 */}
+      {/* ?�데?�트 ?�림 */}
       <AnimatePresence>
         {showUpdatePrompt && (
           <motion.div
@@ -123,14 +123,14 @@ const PWAStatusIndicator: React.FC = () => {
             <div className="bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-200 dark:border-primary-700 rounded-2xl p-4 shadow-xl backdrop-blur-sm">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-lg">🔄</span>
+                  <span className="text-white text-lg">?��</span>
                 </div>
                 <div className="flex-1">
                   <h4 className="font-bold text-primary-800 dark:text-primary-200 mb-1">
-                    업데이트 사용 가능
+                    ?�데?�트 ?�용 가??
                   </h4>
                   <p className="text-sm text-primary-700 dark:text-primary-300 mb-3">
-                    새로운 기능과 개선사항이 준비되었습니다.
+                    ?�로??기능�?개선?�항??준비되?�습?�다.
                   </p>
                   <div className="flex gap-2">
                     <Button
@@ -139,7 +139,7 @@ const PWAStatusIndicator: React.FC = () => {
                       onClick={handleUpdateApp}
                       className="text-xs"
                     >
-                      업데이트
+                      ?�데?�트
                     </Button>
                     <Button
                       variant="ghost"
@@ -147,7 +147,7 @@ const PWAStatusIndicator: React.FC = () => {
                       onClick={() => setShowUpdatePrompt(false)}
                       className="text-xs"
                     >
-                      나중에
+                      ?�중??
                     </Button>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ const PWAStatusIndicator: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* 알림 권한 요청 */}
+      {/* ?�림 권한 ?�청 */}
       <AnimatePresence>
         {showNotificationPrompt && (
           <motion.div
@@ -170,14 +170,14 @@ const PWAStatusIndicator: React.FC = () => {
             <div className="bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-200 dark:border-accent-700 rounded-2xl p-4 shadow-xl backdrop-blur-sm">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-lg">🔔</span>
+                  <span className="text-white text-lg">?��</span>
                 </div>
                 <div className="flex-1">
                   <h4 className="font-bold text-accent-800 dark:text-accent-200 mb-1">
-                    알림 허용하기
+                    ?�림 ?�용?�기
                   </h4>
                   <p className="text-sm text-accent-700 dark:text-accent-300 mb-3">
-                    중요한 상담 정보와 업데이트를 놓치지 마세요.
+                    중요???�담 ?�보?� ?�데?�트�??�치지 마세??
                   </p>
                   <div className="flex gap-2">
                     <Button
@@ -186,7 +186,7 @@ const PWAStatusIndicator: React.FC = () => {
                       onClick={handleEnableNotifications}
                       className="text-xs"
                     >
-                      허용하기
+                      ?�용?�기
                     </Button>
                     <Button
                       variant="ghost"
@@ -194,7 +194,7 @@ const PWAStatusIndicator: React.FC = () => {
                       onClick={() => setShowNotificationPrompt(false)}
                       className="text-xs"
                     >
-                      나중에
+                      ?�중??
                     </Button>
                   </div>
                 </div>
@@ -204,7 +204,7 @@ const PWAStatusIndicator: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* 오프라인 배너 */}
+      {/* ?�프?�인 배너 */}
       <AnimatePresence>
         {!isOnline && (
           <motion.div
@@ -215,8 +215,8 @@ const PWAStatusIndicator: React.FC = () => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             <div className="flex items-center justify-center gap-2 text-sm font-medium">
-              <span>📶</span>
-              <span>오프라인 모드 • 연결을 확인해주세요</span>
+              <span>?��</span>
+              <span>?�프?�인 모드 ???�결???�인?�주?�요</span>
               <motion.div
                 className="w-2 h-2 bg-yellow-700 rounded-full"
                 animate={{ opacity: [1, 0.3, 1] }}
@@ -227,7 +227,7 @@ const PWAStatusIndicator: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* PWA 정보 (개발 모드에서만) */}
+      {/* PWA ?�보 (개발 모드?�서�? */}
       {process.env.NODE_ENV === 'development' && (
         <motion.div
           className="fixed bottom-4 left-4 bg-secondary-800/90 text-white text-xs px-3 py-2 rounded-lg backdrop-blur-sm border border-secondary-600"
@@ -235,7 +235,7 @@ const PWAStatusIndicator: React.FC = () => {
           animate={{ opacity: 0.7 }}
           transition={{ delay: 2 }}
         >
-          PWA: {isStandalone ? '앱 모드' : '브라우저 모드'} | {connectionType}
+          PWA: {isStandalone ? '??모드' : '브라?��? 모드'} | {connectionType}
         </motion.div>
       )}
     </>

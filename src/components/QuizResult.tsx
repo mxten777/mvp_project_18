@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Button from './Button';
+import Button from './common/Button';
 
 interface UserProfile {
   careLevel: 'light' | 'moderate' | 'intensive';
@@ -16,33 +16,33 @@ interface QuizResultProps {
 }
 
 const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookConsultation }) => {
-  // 맞춤 추천 생성
+  // 맞춤 추천 ?�성
   const getRecommendations = () => {
     const recommendations = [];
     
-    // 돌봄 수준에 따른 추천
+    // ?�봄 ?��????�른 추천
     if (profile.careLevel === 'intensive') {
       recommendations.push({
-        title: '집중 케어 패키지',
-        description: '24시간 전문 돌봄이 필요한 어르신을 위한 종합 서비스',
-        services: ['방문요양', '방문간호', '방문목욕', '주야간보호'],
-        icon: '🏥',
+        title: '집중 케???�키지',
+        description: '24?�간 ?�문 ?�봄???�요???�르?�을 ?�한 종합 ?�비??,
+        services: ['방문?�양', '방문간호', '방문목욕', '주야간보??],
+        icon: '?��',
         urgency: 'high'
       });
     } else if (profile.careLevel === 'moderate') {
       recommendations.push({
-        title: '부분 도움 패키지',
-        description: '일상생활에 부분적 도움이 필요한 어르신을 위한 맞춤 서비스',
-        services: ['방문요양', '방문간호'],
-        icon: '🤝',
+        title: '부�??��? ?�키지',
+        description: '?�상?�활??부분적 ?��????�요???�르?�을 ?�한 맞춤 ?�비??,
+        services: ['방문?�양', '방문간호'],
+        icon: '?��',
         urgency: 'medium'
       });
     } else {
       recommendations.push({
-        title: '라이트 케어 패키지',
-        description: '독립적인 생활을 유지하면서 필요시 도움을 받는 서비스',
+        title: '?�이??케???�키지',
+        description: '?�립?�인 ?�활???��??�면???�요???��???받는 ?�비??,
         services: ['방문간호', '건강체크'],
-        icon: '🚶',
+        icon: '?��',
         urgency: 'low'
       });
     }
@@ -63,7 +63,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      {/* 헤더 */}
+      {/* ?�더 */}
       <div className="text-center mb-8">
         <motion.div
           className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full mb-4"
@@ -71,17 +71,17 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
         >
-          <span className="text-3xl">✨</span>
+          <span className="text-3xl">??/span>
         </motion.div>
         <h2 className="text-3xl font-bold text-secondary-800 dark:text-secondary-100 mb-2">
-          맞춤 상담 결과
+          맞춤 ?�담 결과
         </h2>
         <p className="text-lg text-secondary-600 dark:text-secondary-400">
-          어르신의 상황에 최적화된 서비스를 추천드립니다
+          ?�르?�의 ?�황??최적?�된 ?�비?��? 추천?�립?�다
         </p>
       </div>
 
-      {/* 추천 서비스 카드 */}
+      {/* 추천 ?�비??카드 */}
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         {recommendations.map((rec, index) => (
           <motion.div
@@ -104,7 +104,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
 
             <div className="space-y-3">
               <h4 className="font-semibold text-secondary-800 dark:text-secondary-200">
-                포함 서비스:
+                ?�함 ?�비??
               </h4>
               {rec.services.map((service, serviceIndex) => (
                 <div key={serviceIndex} className="flex items-center gap-2">
@@ -117,7 +117,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
         ))}
       </div>
 
-      {/* 비용 정보 */}
+      {/* 비용 ?�보 */}
       <motion.div
         className="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-3xl p-8 mb-8 border border-primary-200/50 dark:border-primary-700/50"
         initial={{ opacity: 0, y: 20 }}
@@ -125,46 +125,46 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
         transition={{ delay: 0.6 }}
       >
         <h3 className="text-2xl font-bold text-center text-secondary-800 dark:text-secondary-100 mb-6">
-          예상 비용 (월간)
+          ?�상 비용 (?�간)
         </h3>
         
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="bg-white/60 dark:bg-secondary-800/60 rounded-2xl p-6">
             <div className="text-2xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
-              총 비용
+              �?비용
             </div>
             <div className="text-3xl font-bold text-secondary-800 dark:text-secondary-200">
-              {estimatedCost}원
+              {estimatedCost}??
             </div>
           </div>
           
           <div className="bg-primary-100/60 dark:bg-primary-900/60 rounded-2xl p-6">
             <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-              국가 지원
+              �?? 지??
             </div>
             <div className="text-3xl font-bold text-primary-700 dark:text-primary-300">
-              {govSupport}원
+              {govSupport}??
             </div>
           </div>
           
           <div className="bg-accent-100/60 dark:bg-accent-900/60 rounded-2xl p-6">
             <div className="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">
-              본인 부담
+              본인 부??
             </div>
             <div className="text-3xl font-bold text-accent-700 dark:text-accent-300">
-              {(parseInt(estimatedCost.replace(',', '')) - parseInt(govSupport.replace(',', ''))).toLocaleString()}원
+              {(parseInt(estimatedCost.replace(',', '')) - parseInt(govSupport.replace(',', ''))).toLocaleString()}??
             </div>
           </div>
         </div>
 
         <div className="mt-6 p-4 bg-primary-100/40 dark:bg-primary-900/40 rounded-xl text-center">
           <p className="text-sm text-primary-700 dark:text-primary-300">
-            💡 국가 지원금으로 <strong>85% 이상</strong> 비용 절감 가능
+            ?�� �?? 지?�금?�로 <strong>85% ?�상</strong> 비용 ?�감 가??
           </p>
         </div>
       </motion.div>
 
-      {/* 긴급도 알림 */}
+      {/* 긴급???�림 */}
       {profile.urgency === 'immediate' && (
         <motion.div
           className="bg-accent-50 dark:bg-accent-900/30 border-l-4 border-accent-500 rounded-r-xl p-6 mb-8"
@@ -173,18 +173,18 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
           transition={{ delay: 0.8 }}
         >
           <div className="flex items-center gap-3">
-            <span className="text-2xl">🚨</span>
+            <span className="text-2xl">?��</span>
             <div>
-              <h4 className="font-bold text-accent-700 dark:text-accent-300">긴급 상담 필요</h4>
+              <h4 className="font-bold text-accent-700 dark:text-accent-300">긴급 ?�담 ?�요</h4>
               <p className="text-accent-600 dark:text-accent-400">
-                즉시 서비스가 필요하신 상황입니다. 24시간 내 전문 상담사가 연락드리겠습니다.
+                즉시 ?�비?��? ?�요?�신 ?�황?�니?? 24?�간 ???�문 ?�담?��? ?�락?�리겠습?�다.
               </p>
             </div>
           </div>
         </motion.div>
       )}
 
-      {/* 액션 버튼들 */}
+      {/* ?�션 버튼??*/}
       <motion.div
         className="flex flex-col sm:flex-row gap-4 justify-center"
         initial={{ opacity: 0 }}
@@ -214,7 +214,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
               </motion.svg>
             }
           >
-            {profile.urgency === 'immediate' ? '긴급 상담 신청' : '맞춤 상담 예약'}
+            {profile.urgency === 'immediate' ? '긴급 ?�담 ?�청' : '맞춤 ?�담 ?�약'}
           </Button>
         </motion.div>
 
@@ -231,7 +231,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ profile, onStartOver, onBookCon
               </svg>
             }
           >
-            다시 진단하기
+            ?�시 진단?�기
           </Button>
         </motion.div>
       </motion.div>

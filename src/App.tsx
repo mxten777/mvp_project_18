@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
-// PC용 전체 기능 App
 import AppPC from './AppPC';
-// 모바일용 간소화 App  
 import AppMobile from './AppMobile';
 
-// 디바이스 감지 훅
+/**
+ * 디바이스 감지 커스텀 훅
+ */
 const useDeviceDetection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,13 +15,10 @@ const useDeviceDetection = () => {
       const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
       const isSmallScreen = window.innerWidth < 768;
       setIsMobile(isMobileDevice || isSmallScreen);
-      setIsLoading(false); // 로딩 완료
+      setIsLoading(false);
     };
 
-    // 즉시 실행
     checkDevice();
-    
-    // 리사이즈 이벤트 추가
     window.addEventListener('resize', checkDevice);
     return () => window.removeEventListener('resize', checkDevice);
   }, []);
@@ -30,10 +26,14 @@ const useDeviceDetection = () => {
   return { isMobile, isLoading };
 };
 
+/**
+ * 메인 App 컴포넌트
+ * 디바이스 감지 후 PC/Mobile 버전 분기
+ */
 function App() {
   const { isMobile, isLoading } = useDeviceDetection();
 
-  // 로딩 중에는 기본 스피너 표시
+  // 로딩 중 표시
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
@@ -49,7 +49,7 @@ function App() {
     );
   }
 
-  // PC: 전체 기능, 모바일: 간소화된 기능
+  // 디바이스에 따라 적절한 버전 렌더링
   return isMobile ? <AppMobile /> : <AppPC />;
 }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Button from './Button';
+import Button from './common/Button';
 
 const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +29,7 @@ const BackToTop: React.FC = () => {
         size="icon"
         onClick={scrollToTop}
         className="rounded-full shadow-large hover:shadow-glow group"
-        aria-label="맨 위로 이동"
+        aria-label="�??�로 ?�동"
       >
         <svg 
           width="20" 

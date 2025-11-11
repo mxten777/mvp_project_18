@@ -2,6 +2,10 @@
   "navigation": {
     "home": "Home",
     "features": "Features",
+    "services": "Services",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "apply": "Free Consultation",
     "dashboard": "Dashboard",
     "collaboration": "Collaboration",
     "analytics": "Analytics",
@@ -12,14 +16,10 @@
     "logout": "Logout",
     "language": "Language",
     "about": "About Center",
-    "services": "Services",
     "pricing": "Pricing",
     "notices": "Notices",
     "downloads": "Downloads",
     "reviews": "Reviews",
-    "faq": "FAQ",
-    "contact": "Contact",
-    "apply": "Apply",
     "privacy": "Privacy Policy",
     "securityCenter": "Security Center",
     "customAnalytics": "Custom Analytics",
@@ -27,7 +27,9 @@
     "mypage": "My Page",
     "login": "Login",
     "globalization": "Globalization",
-    "more": "More"
+    "more": "More",
+    "brandName": "Care Service",
+    "brandSubtitle": "Care Service"
   },
   "home": {
     "title": "Welcome to the Next-Generation Web Platform",
@@ -84,6 +86,20 @@
   },
   "features": {
     "title": "Powerful Features",
+    "sectionTitle": "Why Choose Baikal?",
+    "sectionSubtitle": "Create happiness for seniors and families with professional and reliable services",
+    "funding": {
+      "title": "Over 85% Government Subsidies",
+      "description": "Significantly reduce cost burden with government-supported long-term care insurance. Receive professional services at reasonable prices."
+    },
+    "integrated": {
+      "title": "All-in-One Phone Service",
+      "description": "Apply for all services including home care, nursing, and bathing with just one phone call. Experience simple and fast consultation."
+    },
+    "professional": {
+      "title": "Direct Professional Care Visits",
+      "description": "Professional nurses and caregivers visit directly to accurately assess senior conditions and provide customized care."
+    },
     "aiTitle": "AI-Powered Insights",
     "aiDescription": "Optimize your business processes with machine learning and make intelligent decisions",
     "collaborationTitle": "Real-time Collaboration",
@@ -219,5 +235,82 @@
     "timeFormat": "Time Format",
     "currency": "Currency",
     "settingsTitle": "Global Settings"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to your questions quickly",
+    "questions": [
+      {
+        "q": "How do I apply for the service?",
+        "a": "You can apply online through the consultation request menu at the top, or call our representative number (010-1234-5678) for prompt assistance."
+      },
+      {
+        "q": "How much government subsidy can I receive?",
+        "a": "If you have a long-term care grade, over 85% of the total cost is covered. Basic livelihood recipients may have their co-payment reduced or waived."
+      },
+      {
+        "q": "Can I apply for home care, nursing, and bathing services together?",
+        "a": "Yes, you can apply for all integrated services with a single consultation. Customized services are provided based on the elder's condition."
+      },
+      {
+        "q": "Can I use the service without a long-term care grade?",
+        "a": "If you don't have a grade, we provide free guidance on the grading application process, and private services are also available if needed."
+      },
+      {
+        "q": "What is the service application process?",
+        "a": "The process is: Consultation → Home visit/condition check → Service plan establishment → Contract and service start."
+      },
+      {
+        "q": "What documents or preparations are required?",
+        "a": "You may need a long-term care certificate, ID, and health insurance card. We will provide detailed guidance based on your situation."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Feel free to contact us anytime. Our professional consultants will kindly assist you.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Please enter your name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Your contact number",
+      "message": "Message",
+      "messagePlaceholder": "Please provide detailed information about your inquiry for more accurate consultation",
+      "submit": "Submit Consultation Request",
+      "sending": "Sending...",
+      "success": "Your consultation request has been submitted!",
+      "error": "Submission failed. Please try again."
+    },
+    "info": {
+      "phone": {
+        "title": "Phone",
+        "value": "010-1234-5678",
+        "description": "Weekdays 9 AM - 6 PM"
+      },
+      "email": {
+        "title": "Email",
+        "value": "care@example.com",
+        "description": "Available 24/7"
+      },
+      "address": {
+        "title": "Address",
+        "value": "123 Teheran-ro, Gangnam-gu, Seoul",
+        "description": "Visit by appointment only"
+      }
+    }
+  },
+  "footer": {
+    "brandName": "Baikal Home Care Center",
+    "brandSubtitle": "Care Service Center",
+    "description": "Creating happiness for seniors and families\nwith professional and reliable home care services.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "phone": "010-1234-5678",
+    "address": "123 Teheran-ro, Gangnam-gu, Seoul",
+    "hours": "Weekdays 09:00-18:00",
+    "hoursNote": "Emergency consultation on weekends/holidays",
+    "businessNumber": "Business Registration: 123-45-67890",
+    "ceo": "CEO: Hong Gildong",
+    "copyright": "© {{year}} Baikal Home Care Center. All rights reserved."
   }
 }

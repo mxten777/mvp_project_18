@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import Button from './Button';
+import Button from './common/Button';
 
 interface AdvancedHeroProps {
   className?: string;
@@ -48,7 +48,7 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
       animate="visible"
       variants={containerVariants}
     >
-      {/* 인터랙티브 배경 */}
+      {/* ?�터?�티�?배경 */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div 
           className="absolute top-10 left-10 w-20 h-20 bg-primary-200/30 dark:bg-primary-800/30 rounded-full"
@@ -83,7 +83,7 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
           </svg>
         </motion.div>
 
-        {/* 메인 타이틀 */}
+        {/* 메인 ?�?��? */}
         <motion.h1 
           className="text-5xl md:text-7xl font-heading font-bold text-secondary-800 dark:text-secondary-100 mb-8 leading-[1.1]"
           variants={itemVariants}
@@ -94,7 +94,7 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            부모님 돌보시는 분들에게
+            부모님 ?�보?�는 분들?�게
           </motion.span>
           <motion.span 
             className="block gradient-text font-extrabold text-4xl md:text-6xl"
@@ -102,11 +102,11 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            마음의 짐을 덜어드리겠습니다
+            마음??짐을 ?�어?�리겠습?�다
           </motion.span>
         </motion.h1>
 
-        {/* 혜택 카드 */}
+        {/* ?�택 카드 */}
         <motion.div 
           className="bg-white/80 dark:bg-secondary-800/80 backdrop-blur-xl rounded-3xl p-8 mb-10 border border-primary-200/50 dark:border-primary-700/50 shadow-2xl max-w-4xl mx-auto"
           variants={itemVariants}
@@ -120,18 +120,18 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
               >
-                국가 지원금 85% 이상
+                �?? 지?�금 85% ?�상
               </motion.h2>
               <p className="text-lg text-secondary-700 dark:text-secondary-300 leading-relaxed">
-                전화 한 통으로 방문요양, 방문간호, 방문목욕 등 통합 서비스를 신청하세요
+                ?�화 ???�으�?방문?�양, 방문간호, 방문목욕 ???�합 ?�비?��? ?�청?�세??
               </p>
             </div>
             
             <div className="grid grid-cols-3 gap-4">
               {[
-                { icon: "🏠", text: "집에서 받는\n전문 케어" },
-                { icon: "💝", text: "24시간\n상담 가능" },
-                { icon: "⚡", text: "빠른 서비스\n시작" }
+                { icon: "?��", text: "집에??받는\n?�문 케?? },
+                { icon: "?��", text: "24?�간\n?�담 가?? },
+                { icon: "??, text: "빠른 ?�비??n?�작" }
               ].map((item, index) => (
                 <motion.div 
                   key={index}
@@ -151,7 +151,7 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
           </div>
         </motion.div>
 
-        {/* CTA 버튼들 */}
+        {/* CTA 버튼??*/}
         <motion.div 
           className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
           variants={itemVariants}
@@ -178,7 +178,7 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
                 </motion.svg>
               }
             >
-              무료 상담 신청
+              무료 ?�담 ?�청
             </Button>
           </motion.div>
 
@@ -196,20 +196,20 @@ const AdvancedHero: React.FC<AdvancedHeroProps> = ({ className = '' }) => {
                 </svg>
               }
             >
-              서비스 자료 받기
+              ?�비???�료 받기
             </Button>
           </motion.div>
         </motion.div>
 
-        {/* 신뢰도 지표 */}
+        {/* ?�뢰??지??*/}
         <motion.div 
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
           variants={itemVariants}
         >
           {[
-            { number: "1,200+", label: "만족 가족", color: "text-primary-500" },
-            { number: "95%", label: "만족도", color: "text-accent-500" },
-            { number: "24시간", label: "응답 시간", color: "text-warm-500" }
+            { number: "1,200+", label: "만족 가�?, color: "text-primary-500" },
+            { number: "95%", label: "만족??, color: "text-accent-500" },
+            { number: "24?�간", label: "?�답 ?�간", color: "text-warm-500" }
           ].map((stat, index) => (
             <motion.div 
               key={index}

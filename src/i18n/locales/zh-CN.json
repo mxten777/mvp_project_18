@@ -1,7 +1,11 @@
 {
   "navigation": {
     "home": "首页",
-    "features": "功能",
+    "features": "介绍",
+    "services": "服务",
+    "faq": "常见问题",
+    "contact": "联系我们",
+    "apply": "免费咨询",
     "dashboard": "仪表板",
     "collaboration": "协作",
     "analytics": "分析",
@@ -12,14 +16,10 @@
     "logout": "退出",
     "language": "语言",
     "about": "中心介绍",
-    "services": "服务介绍",
     "pricing": "服务费用",
     "notices": "通知公告",
     "downloads": "资料室",
     "reviews": "客户评价",
-    "faq": "常见问题",
-    "contact": "联系我们",
-    "apply": "咨询申请",
     "privacy": "隐私保护",
     "securityCenter": "安全中心",
     "customAnalytics": "自定义分析",
@@ -27,7 +27,9 @@
     "mypage": "个人主页",
     "login": "登录",
     "globalization": "全球化",
-    "more": "更多"
+    "more": "更多",
+    "brandName": "护理服务",
+    "brandSubtitle": "Care Service"
   },
   "home": {
     "title": "欢迎来到下一代网络平台",
@@ -36,8 +38,68 @@
     "learnMore": "了解更多",
     "heroDescription": "体验采用尖端技术和直观设计构建的完整商业解决方案"
   },
+  "hero": {
+    "title": "减轻您心灵的负担",
+    "subtitle": "为照顾父母的您",
+    "support": "国家补贴85%以上",
+    "description": "一个电话即可获得综合上门护理/看护/洗浴服务",
+    "cta": "免费咨询申请",
+    "videoTitle": "播放介绍视频",
+    "watchDemo": "查看服务"
+  },
+  "services": {
+    "title": "护理服务指南",
+    "subtitle": "通过专业系统的护理服务，减轻家庭负担",
+    "homecare": {
+      "title": "上门护理",
+      "description": "专业护理员直接上门，支持日常生活",
+      "feature1": "身体活动支持",
+      "feature2": "家务支持",
+      "feature3": "情感关怀",
+      "feature4": "安全管理",
+      "price": "月50万韩元 → 7.5万韩元 (85%补贴)"
+    },
+    "nursing": {
+      "title": "上门护士",
+      "description": "专业护士上门提供医疗护理",
+      "feature1": "健康状况检查",
+      "feature2": "用药管理",
+      "feature3": "伤口处理",
+      "feature4": "医疗联系",
+      "price": "月80万韩元 → 12万韩元 (85%补贴)"
+    },
+    "bathing": {
+      "title": "上门洗浴",
+      "description": "专业洗浴服务，同时管理卫生与健康",
+      "feature1": "专业洗浴服务",
+      "feature2": "卫生管理",
+      "feature3": "安全洗浴",
+      "feature4": "皮肤护理",
+      "price": "每次15万韩元 → 2.2万韩元 (85%补贴)"
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "跳转到内容",
+    "skip_to_navigation": "跳转到导航",
+    "menu": "菜单",
+    "close_menu": "关闭菜单"
+  },
   "features": {
     "title": "强大功能",
+    "sectionTitle": "为什么选择拜卡尔？",
+    "sectionSubtitle": "专业可靠的服务，共同创造老年人和家庭的幸福",
+    "funding": {
+      "title": "国家补贴85%以上",
+      "description": "通过国家支持的长期护理保险大幅减少费用负担。以合理的价格享受专业服务。"
+    },
+    "integrated": {
+      "title": "一个电话综合服务",
+      "description": "包括上门护理、上门护士、上门洗浴等所有服务，只需一个电话即可申请。体验简单快捷的咨询。"
+    },
+    "professional": {
+      "title": "专业医护人员直接上门",
+      "description": "护士、护理员等专业医护人员直接上门访问，准确了解老年人的状况，提供定制护理。"
+    },
     "aiTitle": "AI驱动的洞察",
     "aiDescription": "通过机器学习优化业务流程，做出智能决策",
     "collaborationTitle": "实时协作",
@@ -152,5 +214,82 @@
     "api": "API",
     "backup": "备份",
     "advanced": "高级设置"
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "快速查找您关心的问题",
+    "questions": [
+      {
+        "q": "如何申请服务？",
+        "a": "您可以通过顶部菜单的咨询申请或拨打我们的代表电话（010-1234-5678）快速获得帮助。在线/电话均可。"
+      },
+      {
+        "q": "可以获得多少政府补贴？",
+        "a": "如果您获得了长期护理等级，总费用的85%以上将得到支持。基本生活保障接受者等可能减免或免除自付费用。"
+      },
+      {
+        "q": "可以同时申请上门护理、上门护士和上门洗浴服务吗？",
+        "a": "可以，只需一次咨询即可综合申请所有服务。根据老年人的状况提供定制服务。"
+      },
+      {
+        "q": "没有长期护理等级也可以使用吗？",
+        "a": "如果没有等级，我们将从等级申请程序开始免费指导，如有需要也可咨询私人服务。"
+      },
+      {
+        "q": "服务申请流程是怎样的？",
+        "a": "流程为：咨询 → 上门咨询/状况确认 → 制定服务计划 → 签订合同并开始服务。"
+      },
+      {
+        "q": "需要准备哪些文件或材料？",
+        "a": "可能需要长期护理认证书、身份证、健康保险卡等。我们会根据具体情况详细指导。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "如有任何疑问，请随时与我们联系。专业咨询顾问将为您提供友好的帮助。",
+    "form": {
+      "name": "姓名",
+      "namePlaceholder": "请输入您的姓名",
+      "phone": "联系电话",
+      "phonePlaceholder": "可联系的电话号码",
+      "message": "咨询内容",
+      "messagePlaceholder": "请详细填写您的咨询内容，以便提供更准确的咨询",
+      "submit": "提交咨询申请",
+      "sending": "发送中...",
+      "success": "您的咨询申请已提交！",
+      "error": "提交失败，请重试。"
+    },
+    "info": {
+      "phone": {
+        "title": "代表电话",
+        "value": "010-1234-5678",
+        "description": "工作日上午9点至下午6点"
+      },
+      "email": {
+        "title": "电子邮件",
+        "value": "care@example.com",
+        "description": "24小时接受咨询"
+      },
+      "address": {
+        "title": "地址",
+        "value": "首尔市江南区德黑兰路123号",
+        "description": "上门咨询需提前预约"
+      }
+    }
+  },
+  "footer": {
+    "brandName": "拜卡尔居家福利中心",
+    "brandSubtitle": "Care Service Center",
+    "description": "以专业可靠的居家福利服务\n共同创造老年人和家庭的幸福。",
+    "quickLinks": "快速链接",
+    "contact": "联系方式",
+    "phone": "010-1234-5678",
+    "address": "首尔市江南区德黑兰路123号",
+    "hours": "工作日 09:00-18:00",
+    "hoursNote": "周末·节假日仅紧急咨询",
+    "businessNumber": "营业执照号: 123-45-67890",
+    "ceo": "代表: 洪吉东",
+    "copyright": "© {{year}} 拜卡尔居家福利中心. All rights reserved."
   }
 }

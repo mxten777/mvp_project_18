@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Button from './Button';
+import Button from './common/Button';
 
 const ThemeToggle: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -28,7 +28,7 @@ const ThemeToggle: React.FC = () => {
       size="icon"
       onClick={toggleTheme}
       className="relative overflow-hidden group hover:scale-110 transition-all duration-300 bg-gradient-to-r from-amber-400 to-orange-500 dark:from-blue-500 dark:to-purple-600 border-2 border-white/20 shadow-lg"
-      aria-label={`${theme === 'light' ? '다크' : '라이트'} 모드로 전환`}
+      aria-label={`${theme === 'light' ? '?�크' : '?�이??} 모드�??�환`}
     >
       {theme === 'light' ? (
         <svg
@@ -57,7 +57,7 @@ const ThemeToggle: React.FC = () => {
         </svg>
       )}
       
-      {/* 반짝이는 효과 */}
+      {/* 반짝?�는 ?�과 */}
       <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </Button>
   );

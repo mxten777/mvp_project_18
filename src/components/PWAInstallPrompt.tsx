@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Button from './Button';
+import Button from './common/Button';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -14,29 +14,29 @@ const PWAInstallPrompt: React.FC = () => {
   const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
-    // PWA가 이미 설치되었는지 확인
+    // PWA가 ?��? ?�치?�었?��? ?�인
     const checkInstallation = () => {
-      // 스탠드얼론 모드인지 확인
+      // ?�탠?�얼�?모드?��? ?�인
       const isStandaloneMode = window.matchMedia('(display-mode: standalone)').matches ||
                               (window.navigator as any).standalone ||
                               document.referrer.includes('android-app://');
       
       setIsStandalone(isStandaloneMode);
       
-      // 설치 여부 확인 (localStorage 사용)
+      // ?�치 ?��? ?�인 (localStorage ?�용)
       const installed = localStorage.getItem('pwa-installed') === 'true';
       setIsInstalled(installed || isStandaloneMode);
     };
 
     checkInstallation();
 
-    // beforeinstallprompt 이벤트 리스너
+    // beforeinstallprompt ?�벤??리스??
     const handleBeforeInstallPrompt = (e: Event) => {
       console.log('PWA install prompt available');
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       
-      // 5초 후에 프롬프트 표시 (사용자가 사이트를 둘러본 후)
+      // 5�??�에 ?�롬?�트 ?�시 (?�용?��? ?�이?��? ?�러�???
       setTimeout(() => {
         if (!isInstalled && !isStandalone) {
           setShowPrompt(true);
@@ -44,7 +44,7 @@ const PWAInstallPrompt: React.FC = () => {
       }, 10000);
     };
 
-    // 앱이 설치되었을 때
+    // ?�이 ?�치?�었????
     const handleAppInstalled = () => {
       console.log('PWA installed');
       setIsInstalled(true);
@@ -85,20 +85,20 @@ const PWAInstallPrompt: React.FC = () => {
 
   const handleDismiss = () => {
     setShowPrompt(false);
-    // 24시간 동안 다시 표시하지 않음
+    // 24?�간 ?�안 ?�시 ?�시?��? ?�음
     localStorage.setItem('pwa-prompt-dismissed', Date.now().toString());
   };
 
-  // 이미 설치되었거나 스탠드얼론 모드면 표시하지 않음
+  // ?��? ?�치?�었거나 ?�탠?�얼�?모드�??�시?��? ?�음
   if (isInstalled || isStandalone) {
     return null;
   }
 
-  // 최근에 닫았으면 표시하지 않음
+  // 최근???�았?�면 ?�시?��? ?�음
   const lastDismissed = localStorage.getItem('pwa-prompt-dismissed');
   if (lastDismissed) {
     const timeSinceDismiss = Date.now() - parseInt(lastDismissed);
-    if (timeSinceDismiss < 24 * 60 * 60 * 1000) { // 24시간
+    if (timeSinceDismiss < 24 * 60 * 60 * 1000) { // 24?�간
       return null;
     }
   }
@@ -114,18 +114,18 @@ const PWAInstallPrompt: React.FC = () => {
           transition={{ type: "spring", bounce: 0.3 }}
         >
           <div className="bg-white dark:bg-secondary-800 rounded-2xl shadow-2xl border border-secondary-200 dark:border-secondary-700 p-6 backdrop-blur-lg">
-            {/* 헤더 */}
+            {/* ?�더 */}
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-2xl">📱</span>
+                  <span className="text-2xl">?��</span>
                 </div>
                 <div>
                   <h3 className="font-bold text-secondary-800 dark:text-secondary-200">
-                    앱으로 설치하기
+                    ?�으�??�치?�기
                   </h3>
                   <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                    더 편리한 이용을 위해
+                    ???�리???�용???�해
                   </p>
                 </div>
               </div>
@@ -143,13 +143,13 @@ const PWAInstallPrompt: React.FC = () => {
               </motion.button>
             </div>
 
-            {/* 혜택 설명 */}
+            {/* ?�택 ?�명 */}
             <div className="mb-6 space-y-2">
               {[
-                { icon: '⚡', text: '빠른 로딩 속도' },
-                { icon: '📱', text: '홈화면에서 바로 접속' },
-                { icon: '🔔', text: '중요한 알림 받기' },
-                { icon: '📶', text: '오프라인에서도 이용 가능' }
+                { icon: '??, text: '빠른 로딩 ?�도' },
+                { icon: '?��', text: '?�화면에??바로 ?�속' },
+                { icon: '?��', text: '중요???�림 받기' },
+                { icon: '?��', text: '?�프?�인?�서???�용 가?? }
               ].map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -166,7 +166,7 @@ const PWAInstallPrompt: React.FC = () => {
               ))}
             </div>
 
-            {/* 액션 버튼들 */}
+            {/* ?�션 버튼??*/}
             <div className="flex gap-3">
               <motion.div
                 className="flex-1"
@@ -186,7 +186,7 @@ const PWAInstallPrompt: React.FC = () => {
                     </svg>
                   }
                 >
-                  설치하기
+                  ?�치?�기
                 </Button>
               </motion.div>
               
@@ -199,15 +199,15 @@ const PWAInstallPrompt: React.FC = () => {
                   size="md"
                   onClick={handleDismiss}
                 >
-                  나중에
+                  ?�중??
                 </Button>
               </motion.div>
             </div>
 
-            {/* 설치 가이드 */}
+            {/* ?�치 가?�드 */}
             <div className="mt-4 pt-4 border-t border-secondary-200 dark:border-secondary-600">
               <p className="text-xs text-secondary-500 dark:text-secondary-400 text-center">
-                💡 브라우저에서 "홈 화면에 추가" 옵션을 찾을 수도 있어요
+                ?�� 브라?��??�서 "???�면??추�?" ?�션??찾을 ?�도 ?�어??
               </p>
             </div>
           </div>
