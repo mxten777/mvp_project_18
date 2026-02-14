@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import SEOHead from '../components/SEOHead';
+import SEOHead from '../components/ui/SEOHead';
 
 /**
  * 404 Not Found 페이지

@@ -7,7 +7,7 @@ import i18n from './i18n/i18n';
 import { MainLayout } from './layouts';
 
 // Components
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/ui/ScrollToTop';
 
 // Pages
 import { 
@@ -20,7 +20,7 @@ import {
 
 // Contexts
 import { AuthProvider } from "./contexts/AuthContext";
-import SEOHead from "./components/SEOHead";
+import SEOHead from "./components/ui/SEOHead";
 
 
 

@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n/i18n';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/ui/ScrollToTop';
 import { MobileLayout } from './layouts';
 import Hero from './components/sections/Hero';
 import Features from './components/sections/Features';
 import Services from './components/sections/Services';
 import Steps from './components/sections/Steps';
-import FAQList from './components/FAQList';
+import FAQList from './components/ui/FAQList';
 import { CONTACT } from './constants';
 import { AuthProvider } from './contexts/AuthContext';
 

@@ -3,4 +3,3 @@
  */
 export { default as MainLayout } from './MainLayout';
 export { default as MobileLayout } from './MobileLayout';
-export { default as AdminLayout } from './AdminLayout';

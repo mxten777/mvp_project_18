@@ -1,6 +1,6 @@
 import React from 'react';
-import SEOHead from '../components/SEOHead';
-import FAQList from '../components/FAQList';
+import SEOHead from '../components/ui/SEOHead';
+import FAQList from '../components/ui/FAQList';
 
 /**
  * 자주 묻는 질문 페이지

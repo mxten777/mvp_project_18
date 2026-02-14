@@ -1,5 +1,5 @@
 import React from 'react';
-import SEOHead from '../components/SEOHead';
+import SEOHead from '../components/ui/SEOHead';
 import Contact from '../components/sections/Contact';
 
 /**

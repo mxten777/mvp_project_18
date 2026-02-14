@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import SEOHead from '../components/SEOHead';
+import SEOHead from '../components/ui/SEOHead';
 
 // Lazy load components for better performance
 const Hero = lazy(() => import('../components/sections/Hero'));
@@ -7,7 +7,7 @@ const Features = lazy(() => import('../components/sections/Features'));
 const Services = lazy(() => import('../components/sections/Services'));
 const Steps = lazy(() => import('../components/sections/Steps'));
 const CTA = lazy(() => import('../components/sections/CTA'));
-const FAQList = lazy(() => import('../components/FAQList'));
+const FAQList = lazy(() => import('../components/ui/FAQList'));
 const Contact = lazy(() => import('../components/sections/Contact'));
 
 // Loading fallback component
